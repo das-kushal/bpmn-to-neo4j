@@ -13,77 +13,82 @@ export default async (bpmnXML, neo4jDriver) => {
 
   try {
     // Map BPMN elements to Neo4j nodes and relationships
-    const neo4jArrData = mapBPMNtoNeo4j(data);
-    for (let i = 0; i < neo4jArrData.length; i++) {
-      const neo4jData = neo4jArrData[i];
+    const neo4jData = mapBPMNtoNeo4j(data);
 
-      fs.writeFileSync("data2.json", JSON.stringify(data, null, 2));
+    fs.writeFileSync("data2.json", JSON.stringify(data, null, 2));
 
-      // NEW part
-      const createNodeQueries = neo4jData.nodes?.map((node) => {
-        console.log(`node is ${node}`);
-        let nodeProperties = `id: '${node.id}', name: '${node.name}'`;
+    // NEW part
+    const createNodeQueries = neo4jData.nodes?.map((node) => {
+      console.log(`node is ${node}`);
+      let nodeProperties = `id: '${node.id}', name: '${node.name}'`;
 
-        // Check if the node has an annotation property
-        if (node.annotation) {
-          // Add the annotation property
-          console.log("node has annotation");
-          nodeProperties += `, annotation: '${node.annotation}'`;
-        }
-        // check if there is a loopCharacteristics property like loop, parallel multiple instance marker, sequential multiple instance marker
-        if (node.marker) {
-          console.log("node has marker");
-          nodeProperties += `, marker: '${node.marker}'`;
-        }
-        // check if there is a event definitions property like message, signal, error etc.
-        if (node.eventDefinitions) {
-          console.log("node has eventDefinitions");
-          nodeProperties += `, eventDef_type: '${node.eventDefinitions}'`;
-        }
+      // Check if the node has an annotation property
+      if (node.annotation) {
+        // Add the annotation property
+        console.log("node has annotation");
+        nodeProperties += `, annotation: '${node.annotation}'`;
+      }
+      // check if there is a loopCharacteristics property like loop, parallel multiple instance marker, sequential multiple instance marker
+      if (node.marker) {
+        console.log("node has marker");
+        nodeProperties += `, marker: '${node.marker}'`;
+      }
+      // check if there is a event definitions property like message, signal, error etc.
+      if (node.eventDefinitions) {
+        console.log("node has eventDefinitions");
+        nodeProperties += `, eventDef_type: '${node.eventDefinitions}'`;
+      }
 
-        return `
+      if (node.parent) {
+        console.log("node has parent");
+        if (node.parent.parentId)
+          nodeProperties += `, parent_id: '${node.parent.parentId}'`;
+        if (node.parent.parentName)
+          nodeProperties += `, parent_name: '${node.parent.parentName}'`;
+      }
+
+      return `
         CREATE (n_${node.id}: ${node.type} {
           ${nodeProperties}
         })
         `;
-      });
+    });
 
-      // Create relationships in Neo4j
-      const createRelationshipQueries = neo4jData.relationships?.map(
-        (relationship) => {
-          return `
+    // Create relationships in Neo4j
+    const createRelationshipQueries = neo4jData.relationships?.map(
+      (relationship) => {
+        return `
           MATCH (sourceNode:${relationship.source.type} { id: '${relationship.source.id}' }),
           (targetNode:${relationship.target.type} { id: '${relationship.target.id}' })
           CREATE (sourceNode)-[:${relationship.type}]->(targetNode)
           RETURN sourceNode, targetNode
           `;
-        }
-      );
-      console.log("******INITIALISING SESSION**********");
-      const session = neo4jDriver.session();
-
-      // Run the Cypher queries in a transaction
-      const txc = session.beginTransaction();
-      try {
-        const queries = [
-          deletingQuery,
-          ...createNodeQueries,
-          ...createRelationshipQueries,
-        ];
-        queries.forEach(async (query) => await txc.run(query));
-        console.log("Query completed");
-
-        await txc.commit();
-        console.log("committed");
-      } catch (error) {
-        console.log(error);
-        await txc.rollback();
-        console.log("rolled back");
-      } finally {
-        await session.close();
       }
+    );
+    console.log("******INITIALISING SESSION**********");
+    const session = neo4jDriver.session();
+
+    // Run the Cypher queries in a transaction
+    const txc = session.beginTransaction();
+    try {
+      const queries = [
+        deletingQuery,
+        ...createNodeQueries,
+        ...createRelationshipQueries,
+      ];
+      queries.forEach(async (query) => await txc.run(query));
+      console.log("Query completed");
+
+      await txc.commit();
+      console.log("committed");
+    } catch (error) {
+      console.log(error);
+      await txc.rollback();
+      console.log("rolled back");
+    } finally {
       await session.close();
     }
+    await session.close();
   } catch (error) {
     console.error("Error converting BPMN to Neo4j:", error);
   }

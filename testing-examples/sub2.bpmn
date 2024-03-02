@@ -4,7 +4,7 @@
     <bpmn:startEvent id="StartEvent_1ibzexp" name="1">
       <bpmn:outgoing>Flow_0ruewsi</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:subProcess id="Activity_0z1ii88" name="Kushal_sub1">
+    <bpmn:subProcess id="Activity_0z1ii88" name="subprocess1">
       <bpmn:incoming>Flow_0ruewsi</bpmn:incoming>
       <bpmn:outgoing>Flow_1prqr7v</bpmn:outgoing>
       <bpmn:startEvent id="Event_1w07kch" name="11">
@@ -24,7 +24,7 @@
     <bpmn:startEvent id="Event_0u0vhzl" name="2">
       <bpmn:outgoing>Flow_1is6v5h</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:subProcess id="Activity_03s6yui" name="Kushal_dom1_sub2">
+    <bpmn:subProcess id="Activity_03s6yui" name="subprocess2">
       <bpmn:incoming>Flow_1is6v5h</bpmn:incoming>
       <bpmn:incoming>Flow_1prqr7v</bpmn:incoming>
       <bpmn:startEvent id="Event_0t5y400" name="21">

@@ -1,9 +1,8 @@
-const handleProcess = (process, references, neo4jData) => {
+const handleProcess = (process, references, neo4jData, parent) => {
   //   const neo4jData = {
   //     nodes: [],
   //     relationships: [],
   //   };
-  let retData = [];
 
   const sequenceFlows = [];
   const mapToFlow = {};
@@ -83,17 +82,16 @@ const handleProcess = (process, references, neo4jData) => {
       };
       mapToFlow[element.id] = sequenceFlows.length;
       sequenceFlows.push(newSeq);
-    } else if (element.$type === "bpmn:SubProcess") {
-      retData.push(handleProcess(element, references));
-      //   if (process.type === "bpmn:SubProcess") {
-      //   }
     } else {
       // TODO: Add logic to handle the single node for a subprocess ****
-      //   if (element.$type === "bpmn:SubProcess") {
-      //     retData.push(handleProcess(element, references));
-      //     //   if (process.type === "bpmn:SubProcess") {
-      //     //   }
-      //   }
+      if (element.$type === "bpmn:SubProcess") {
+        //   if (process.type === "bpmn:SubProcess") {
+        //   }
+        handleProcess(element, references, neo4jData, {
+          parentId: element.id,
+          parentName: element.name,
+        });
+      }
       const ele = element.$type.substring(5);
 
       let node = {
@@ -103,6 +101,7 @@ const handleProcess = (process, references, neo4jData) => {
         annotation: "", // Initialize annotation property
         marker: "", // to add a marker property
         eventDefinitions: "",
+        parent: parent,
       };
       if (element.loopCharacteristics) {
         node = {
@@ -237,11 +236,5 @@ const handleProcess = (process, references, neo4jData) => {
     "neo4jDataRELATIONSHIPS is ",
     JSON.stringify(neo4jData.relationships)
   );
-
-  retData.push([neo4jData]);
-
-  console.log("******RETDATA*********\n", retData);
-
-  return retData;
 };
 export default handleProcess;

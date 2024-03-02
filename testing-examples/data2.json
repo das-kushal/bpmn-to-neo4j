@@ -19,7 +19,7 @@
           {
             "$type": "bpmn:SubProcess",
             "id": "Activity_0z1ii88",
-            "name": "Kushal_sub1",
+            "name": "subprocess1",
             "flowElements": [
               {
                 "$type": "bpmn:StartEvent",
@@ -58,7 +58,7 @@
           {
             "$type": "bpmn:SubProcess",
             "id": "Activity_03s6yui",
-            "name": "Kushal_dom1_sub2",
+            "name": "subprocess2",
             "flowElements": [
               {
                 "$type": "bpmn:StartEvent",
@@ -373,7 +373,7 @@
             {
               "$type": "bpmn:SubProcess",
               "id": "Activity_0z1ii88",
-              "name": "Kushal_sub1",
+              "name": "subprocess1",
               "flowElements": [
                 {
                   "$type": "bpmn:StartEvent",
@@ -412,7 +412,7 @@
             {
               "$type": "bpmn:SubProcess",
               "id": "Activity_03s6yui",
-              "name": "Kushal_dom1_sub2",
+              "name": "subprocess2",
               "flowElements": [
                 {
                   "$type": "bpmn:StartEvent",
@@ -719,7 +719,7 @@
         {
           "$type": "bpmn:SubProcess",
           "id": "Activity_0z1ii88",
-          "name": "Kushal_sub1",
+          "name": "subprocess1",
           "flowElements": [
             {
               "$type": "bpmn:StartEvent",
@@ -758,7 +758,7 @@
         {
           "$type": "bpmn:SubProcess",
           "id": "Activity_03s6yui",
-          "name": "Kushal_dom1_sub2",
+          "name": "subprocess2",
           "flowElements": [
             {
               "$type": "bpmn:StartEvent",
@@ -794,7 +794,7 @@
     "Activity_0z1ii88": {
       "$type": "bpmn:SubProcess",
       "id": "Activity_0z1ii88",
-      "name": "Kushal_sub1",
+      "name": "subprocess1",
       "flowElements": [
         {
           "$type": "bpmn:StartEvent",
@@ -856,7 +856,7 @@
     "Activity_03s6yui": {
       "$type": "bpmn:SubProcess",
       "id": "Activity_03s6yui",
-      "name": "Kushal_dom1_sub2",
+      "name": "subprocess2",
       "flowElements": [
         {
           "$type": "bpmn:StartEvent",
@@ -1685,7 +1685,7 @@
       "element": {
         "$type": "bpmn:SubProcess",
         "id": "Activity_0z1ii88",
-        "name": "Kushal_sub1",
+        "name": "subprocess1",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
@@ -1719,7 +1719,7 @@
       "element": {
         "$type": "bpmn:SubProcess",
         "id": "Activity_0z1ii88",
-        "name": "Kushal_sub1",
+        "name": "subprocess1",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
@@ -1846,7 +1846,7 @@
       "element": {
         "$type": "bpmn:SubProcess",
         "id": "Activity_03s6yui",
-        "name": "Kushal_dom1_sub2",
+        "name": "subprocess2",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
@@ -1871,7 +1871,7 @@
       "element": {
         "$type": "bpmn:SubProcess",
         "id": "Activity_03s6yui",
-        "name": "Kushal_dom1_sub2",
+        "name": "subprocess2",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
