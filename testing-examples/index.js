@@ -9,8 +9,8 @@ import main from "bpmn-to-neo4j-m";
 // const fileUrl = './dbtest3.bpmn';    // if it is in current directory
 
 // const fileUrl = './creditWorthynessCheck.bpmn';
-const fileUrl = "./subprocess.bpmn";
-// const fileUrl = "./sub2.bpmn";
+// const fileUrl = "./subprocess.bpmn";
+const fileUrl = "./sub2.bpmn";
 // const fileUrl = './referral-diagram.bpmn';
 // const fileUrl = "./checking_stock_order.bpmn";
 
