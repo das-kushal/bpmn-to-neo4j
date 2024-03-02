@@ -1,88 +1,107 @@
 {
   "rootElement": {
     "$type": "bpmn:Definitions",
-    "id": "Definitions_06a7c5s",
+    "id": "Definitions_13g924p",
     "targetNamespace": "http://bpmn.io/schema/bpmn",
     "exporter": "bpmn-js (https://demo.bpmn.io)",
     "exporterVersion": "16.4.0",
     "rootElements": [
       {
         "$type": "bpmn:Process",
-        "id": "Process_1bpudnz",
+        "id": "Process_0dzg6ph",
         "isExecutable": false,
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
-            "id": "StartEvent_1ibzexp",
-            "name": "1"
+            "id": "StartEvent_0yb13tk",
+            "name": "outerstart"
+          },
+          {
+            "$type": "bpmn:Task",
+            "id": "Activity_1ffg47j",
+            "name": "midway"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_0bqba59"
           },
           {
             "$type": "bpmn:SubProcess",
-            "id": "Activity_0z1ii88",
-            "name": "subprocess1",
+            "id": "Activity_0rdg1tk",
             "flowElements": [
               {
                 "$type": "bpmn:StartEvent",
-                "id": "Event_1w07kch",
-                "name": "11"
+                "id": "Event_1ehf527",
+                "name": "innerstart"
               },
               {
                 "$type": "bpmn:Task",
-                "id": "Activity_1j0f7xd",
-                "name": "12"
+                "id": "Activity_15eiw6r",
+                "name": "innertask1"
               },
               {
                 "$type": "bpmn:SequenceFlow",
-                "id": "Flow_0pkwqpe"
+                "id": "Flow_096hzw3"
+              },
+              {
+                "$type": "bpmn:ExclusiveGateway",
+                "id": "Gateway_1se4v3w",
+                "name": "mygateway"
+              },
+              {
+                "$type": "bpmn:SequenceFlow",
+                "id": "Flow_15c9hl0"
               },
               {
                 "$type": "bpmn:Task",
-                "id": "Activity_06vz59z",
-                "name": "13"
+                "id": "Activity_0pee75o",
+                "name": "innertask2"
+              },
+              {
+                "$type": "bpmn:Task",
+                "id": "Activity_0e0ayod",
+                "name": "innertask3"
               },
               {
                 "$type": "bpmn:SequenceFlow",
-                "id": "Flow_0wioa0e"
+                "id": "Flow_0hhrkrp"
+              },
+              {
+                "$type": "bpmn:SequenceFlow",
+                "id": "Flow_1k2z3xr"
+              },
+              {
+                "$type": "bpmn:EndEvent",
+                "id": "Event_1rwurj0",
+                "name": "innerend1"
+              },
+              {
+                "$type": "bpmn:EndEvent",
+                "id": "Event_0eyhlbj",
+                "name": "innerend2"
+              },
+              {
+                "$type": "bpmn:SequenceFlow",
+                "id": "Flow_08svbbv"
+              },
+              {
+                "$type": "bpmn:SequenceFlow",
+                "id": "Flow_11m0f9d"
               }
             ]
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_0ruewsi"
+            "id": "Flow_082m1mc"
           },
           {
-            "$type": "bpmn:StartEvent",
-            "id": "Event_0u0vhzl",
-            "name": "2"
-          },
-          {
-            "$type": "bpmn:SubProcess",
-            "id": "Activity_03s6yui",
-            "name": "subprocess2",
-            "flowElements": [
-              {
-                "$type": "bpmn:StartEvent",
-                "id": "Event_0t5y400",
-                "name": "21"
-              },
-              {
-                "$type": "bpmn:Task",
-                "id": "Activity_11vopaz",
-                "name": "22"
-              },
-              {
-                "$type": "bpmn:SequenceFlow",
-                "id": "Flow_09qtun2"
-              }
-            ]
+            "$type": "bpmn:EndEvent",
+            "id": "Event_12yj68a",
+            "name": "outerend"
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_1is6v5h"
-          },
-          {
-            "$type": "bpmn:SequenceFlow",
-            "id": "Flow_1prqr7v"
+            "id": "Flow_0rmessc"
           }
         ]
       }
@@ -97,11 +116,46 @@
           "planeElement": [
             {
               "$type": "bpmndi:BPMNShape",
+              "id": "Activity_1ffg47j_di",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 260,
+                "y": 190,
+                "width": 100,
+                "height": 80
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel"
+              }
+            },
+            {
+              "$type": "bpmndi:BPMNShape",
+              "id": "Event_12yj68a_di",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 1112,
+                "y": 212,
+                "width": 36,
+                "height": 36
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 1109,
+                  "y": 255,
+                  "width": 44,
+                  "height": 14
+                }
+              }
+            },
+            {
+              "$type": "bpmndi:BPMNShape",
               "id": "_BPMNShape_StartEvent_2",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 152,
-                "y": 242,
+                "x": 162,
+                "y": 212,
                 "width": 36,
                 "height": 36
               },
@@ -109,56 +163,32 @@
                 "$type": "bpmndi:BPMNLabel",
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 167,
-                  "y": 285,
-                  "width": 7,
+                  "x": 157,
+                  "y": 255,
+                  "width": 47,
                   "height": 14
                 }
               }
             },
             {
               "$type": "bpmndi:BPMNShape",
-              "id": "Event_0u0vhzl_di",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 192,
-                "y": 662,
-                "width": 36,
-                "height": 36
-              },
-              "label": {
-                "$type": "bpmndi:BPMNLabel",
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 207,
-                  "y": 705,
-                  "width": 7,
-                  "height": 14
-                }
-              }
-            },
-            {
-              "$type": "bpmndi:BPMNShape",
-              "id": "Activity_0z1ii88_di",
+              "id": "Activity_0rdg1tk_di",
               "isExpanded": true,
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 285,
-                "y": 100,
-                "width": 565,
-                "height": 400
-              },
-              "label": {
-                "$type": "bpmndi:BPMNLabel"
+                "x": 420,
+                "y": 80,
+                "width": 620,
+                "height": 280
               }
             },
             {
               "$type": "bpmndi:BPMNShape",
-              "id": "Event_1w07kch_di",
+              "id": "Event_1ehf527_di",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 342,
-                "y": 182,
+                "x": 460,
+                "y": 192,
                 "width": 36,
                 "height": 36
               },
@@ -166,20 +196,20 @@
                 "$type": "bpmndi:BPMNLabel",
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 354,
-                  "y": 225,
-                  "width": 13,
+                  "x": 455,
+                  "y": 235,
+                  "width": 46,
                   "height": 14
                 }
               }
             },
             {
               "$type": "bpmndi:BPMNShape",
-              "id": "Activity_1j0f7xd_di",
+              "id": "Activity_15eiw6r_di",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 430,
-                "y": 160,
+                "x": 530,
+                "y": 170,
                 "width": 100,
                 "height": 80
               },
@@ -189,11 +219,33 @@
             },
             {
               "$type": "bpmndi:BPMNShape",
-              "id": "Activity_06vz59z_di",
+              "id": "Gateway_1se4v3w_di",
+              "isMarkerVisible": true,
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 620,
-                "y": 160,
+                "x": 665,
+                "y": 185,
+                "width": 50,
+                "height": 50
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 742,
+                  "y": 200,
+                  "width": 56,
+                  "height": 14
+                }
+              }
+            },
+            {
+              "$type": "bpmndi:BPMNShape",
+              "id": "Activity_0pee75o_di",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 770,
+                "y": 110,
                 "width": 100,
                 "height": 80
               },
@@ -202,148 +254,212 @@
               }
             },
             {
-              "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_0pkwqpe_di",
-              "waypoint": [
-                {
-                  "$type": "dc:Point",
-                  "x": 378,
-                  "y": 200
-                },
-                {
-                  "$type": "dc:Point",
-                  "x": 430,
-                  "y": 200
+              "$type": "bpmndi:BPMNShape",
+              "id": "BPMNShape_1jsvigz",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 770,
+                "y": 250,
+                "width": 100,
+                "height": 80
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel"
+              }
+            },
+            {
+              "$type": "bpmndi:BPMNShape",
+              "id": "BPMNShape_0gltwu3",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 942,
+                "y": 272,
+                "width": 36,
+                "height": 36
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 936,
+                  "y": 315,
+                  "width": 49,
+                  "height": 14
                 }
-              ]
+              }
+            },
+            {
+              "$type": "bpmndi:BPMNShape",
+              "id": "Event_1rwurj0_di",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 942,
+                "y": 132,
+                "width": 36,
+                "height": 36
+              },
+              "label": {
+                "$type": "bpmndi:BPMNLabel",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 936,
+                  "y": 175,
+                  "width": 49,
+                  "height": 14
+                }
+              }
             },
             {
               "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_0wioa0e_di",
+              "id": "Flow_096hzw3_di",
               "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 496,
+                  "y": 210
+                },
                 {
                   "$type": "dc:Point",
                   "x": 530,
-                  "y": 200
-                },
-                {
-                  "$type": "dc:Point",
-                  "x": 620,
-                  "y": 200
-                }
-              ]
-            },
-            {
-              "$type": "bpmndi:BPMNShape",
-              "id": "Activity_03s6yui_di",
-              "isExpanded": true,
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 285,
-                "y": 580,
-                "width": 565,
-                "height": 360
-              },
-              "label": {
-                "$type": "bpmndi:BPMNLabel"
-              }
-            },
-            {
-              "$type": "bpmndi:BPMNShape",
-              "id": "Event_0t5y400_di",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 342,
-                "y": 662,
-                "width": 36,
-                "height": 36
-              },
-              "label": {
-                "$type": "bpmndi:BPMNLabel",
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 354,
-                  "y": 705,
-                  "width": 13,
-                  "height": 14
-                }
-              }
-            },
-            {
-              "$type": "bpmndi:BPMNShape",
-              "id": "Activity_11vopaz_di",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 430,
-                "y": 640,
-                "width": 100,
-                "height": 80
-              },
-              "label": {
-                "$type": "bpmndi:BPMNLabel"
-              }
-            },
-            {
-              "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_09qtun2_di",
-              "waypoint": [
-                {
-                  "$type": "dc:Point",
-                  "x": 378,
-                  "y": 680
-                },
-                {
-                  "$type": "dc:Point",
-                  "x": 430,
-                  "y": 680
+                  "y": 210
                 }
               ]
             },
             {
               "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_0ruewsi_di",
+              "id": "Flow_15c9hl0_di",
               "waypoint": [
                 {
                   "$type": "dc:Point",
-                  "x": 188,
-                  "y": 260
+                  "x": 630,
+                  "y": 210
                 },
                 {
                   "$type": "dc:Point",
-                  "x": 285,
-                  "y": 260
+                  "x": 665,
+                  "y": 210
                 }
               ]
             },
             {
               "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_1is6v5h_di",
+              "id": "Flow_0hhrkrp_di",
               "waypoint": [
                 {
                   "$type": "dc:Point",
-                  "x": 228,
-                  "y": 680
+                  "x": 690,
+                  "y": 185
                 },
                 {
                   "$type": "dc:Point",
-                  "x": 285,
-                  "y": 680
+                  "x": 690,
+                  "y": 150
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 770,
+                  "y": 150
                 }
               ]
             },
             {
               "$type": "bpmndi:BPMNEdge",
-              "id": "Flow_1prqr7v_di",
+              "id": "Flow_1k2z3xr_di",
               "waypoint": [
                 {
                   "$type": "dc:Point",
-                  "x": 568,
-                  "y": 500
+                  "x": 690,
+                  "y": 235
                 },
                 {
                   "$type": "dc:Point",
-                  "x": 568,
-                  "y": 580
+                  "x": 690,
+                  "y": 290
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 770,
+                  "y": 290
+                }
+              ]
+            },
+            {
+              "$type": "bpmndi:BPMNEdge",
+              "id": "Flow_08svbbv_di",
+              "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 870,
+                  "y": 150
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 942,
+                  "y": 150
+                }
+              ]
+            },
+            {
+              "$type": "bpmndi:BPMNEdge",
+              "id": "Flow_11m0f9d_di",
+              "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 870,
+                  "y": 290
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 942,
+                  "y": 290
+                }
+              ]
+            },
+            {
+              "$type": "bpmndi:BPMNEdge",
+              "id": "Flow_0bqba59_di",
+              "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 198,
+                  "y": 230
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 260,
+                  "y": 230
+                }
+              ]
+            },
+            {
+              "$type": "bpmndi:BPMNEdge",
+              "id": "Flow_082m1mc_di",
+              "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 360,
+                  "y": 230
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 420,
+                  "y": 230
+                }
+              ]
+            },
+            {
+              "$type": "bpmndi:BPMNEdge",
+              "id": "Flow_0rmessc_di",
+              "waypoint": [
+                {
+                  "$type": "dc:Point",
+                  "x": 1040,
+                  "y": 230
+                },
+                {
+                  "$type": "dc:Point",
+                  "x": 1112,
+                  "y": 230
                 }
               ]
             }
@@ -353,90 +469,109 @@
     ]
   },
   "elementsById": {
-    "Definitions_06a7c5s": {
+    "Definitions_13g924p": {
       "$type": "bpmn:Definitions",
-      "id": "Definitions_06a7c5s",
+      "id": "Definitions_13g924p",
       "targetNamespace": "http://bpmn.io/schema/bpmn",
       "exporter": "bpmn-js (https://demo.bpmn.io)",
       "exporterVersion": "16.4.0",
       "rootElements": [
         {
           "$type": "bpmn:Process",
-          "id": "Process_1bpudnz",
+          "id": "Process_0dzg6ph",
           "isExecutable": false,
           "flowElements": [
             {
               "$type": "bpmn:StartEvent",
-              "id": "StartEvent_1ibzexp",
-              "name": "1"
+              "id": "StartEvent_0yb13tk",
+              "name": "outerstart"
+            },
+            {
+              "$type": "bpmn:Task",
+              "id": "Activity_1ffg47j",
+              "name": "midway"
+            },
+            {
+              "$type": "bpmn:SequenceFlow",
+              "id": "Flow_0bqba59"
             },
             {
               "$type": "bpmn:SubProcess",
-              "id": "Activity_0z1ii88",
-              "name": "subprocess1",
+              "id": "Activity_0rdg1tk",
               "flowElements": [
                 {
                   "$type": "bpmn:StartEvent",
-                  "id": "Event_1w07kch",
-                  "name": "11"
+                  "id": "Event_1ehf527",
+                  "name": "innerstart"
                 },
                 {
                   "$type": "bpmn:Task",
-                  "id": "Activity_1j0f7xd",
-                  "name": "12"
+                  "id": "Activity_15eiw6r",
+                  "name": "innertask1"
                 },
                 {
                   "$type": "bpmn:SequenceFlow",
-                  "id": "Flow_0pkwqpe"
+                  "id": "Flow_096hzw3"
+                },
+                {
+                  "$type": "bpmn:ExclusiveGateway",
+                  "id": "Gateway_1se4v3w",
+                  "name": "mygateway"
+                },
+                {
+                  "$type": "bpmn:SequenceFlow",
+                  "id": "Flow_15c9hl0"
                 },
                 {
                   "$type": "bpmn:Task",
-                  "id": "Activity_06vz59z",
-                  "name": "13"
+                  "id": "Activity_0pee75o",
+                  "name": "innertask2"
+                },
+                {
+                  "$type": "bpmn:Task",
+                  "id": "Activity_0e0ayod",
+                  "name": "innertask3"
                 },
                 {
                   "$type": "bpmn:SequenceFlow",
-                  "id": "Flow_0wioa0e"
+                  "id": "Flow_0hhrkrp"
+                },
+                {
+                  "$type": "bpmn:SequenceFlow",
+                  "id": "Flow_1k2z3xr"
+                },
+                {
+                  "$type": "bpmn:EndEvent",
+                  "id": "Event_1rwurj0",
+                  "name": "innerend1"
+                },
+                {
+                  "$type": "bpmn:EndEvent",
+                  "id": "Event_0eyhlbj",
+                  "name": "innerend2"
+                },
+                {
+                  "$type": "bpmn:SequenceFlow",
+                  "id": "Flow_08svbbv"
+                },
+                {
+                  "$type": "bpmn:SequenceFlow",
+                  "id": "Flow_11m0f9d"
                 }
               ]
             },
             {
               "$type": "bpmn:SequenceFlow",
-              "id": "Flow_0ruewsi"
+              "id": "Flow_082m1mc"
             },
             {
-              "$type": "bpmn:StartEvent",
-              "id": "Event_0u0vhzl",
-              "name": "2"
-            },
-            {
-              "$type": "bpmn:SubProcess",
-              "id": "Activity_03s6yui",
-              "name": "subprocess2",
-              "flowElements": [
-                {
-                  "$type": "bpmn:StartEvent",
-                  "id": "Event_0t5y400",
-                  "name": "21"
-                },
-                {
-                  "$type": "bpmn:Task",
-                  "id": "Activity_11vopaz",
-                  "name": "22"
-                },
-                {
-                  "$type": "bpmn:SequenceFlow",
-                  "id": "Flow_09qtun2"
-                }
-              ]
+              "$type": "bpmn:EndEvent",
+              "id": "Event_12yj68a",
+              "name": "outerend"
             },
             {
               "$type": "bpmn:SequenceFlow",
-              "id": "Flow_1is6v5h"
-            },
-            {
-              "$type": "bpmn:SequenceFlow",
-              "id": "Flow_1prqr7v"
+              "id": "Flow_0rmessc"
             }
           ]
         }
@@ -451,11 +586,46 @@
             "planeElement": [
               {
                 "$type": "bpmndi:BPMNShape",
+                "id": "Activity_1ffg47j_di",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 260,
+                  "y": 190,
+                  "width": 100,
+                  "height": 80
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel"
+                }
+              },
+              {
+                "$type": "bpmndi:BPMNShape",
+                "id": "Event_12yj68a_di",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 1112,
+                  "y": 212,
+                  "width": 36,
+                  "height": 36
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel",
+                  "bounds": {
+                    "$type": "dc:Bounds",
+                    "x": 1109,
+                    "y": 255,
+                    "width": 44,
+                    "height": 14
+                  }
+                }
+              },
+              {
+                "$type": "bpmndi:BPMNShape",
                 "id": "_BPMNShape_StartEvent_2",
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 152,
-                  "y": 242,
+                  "x": 162,
+                  "y": 212,
                   "width": 36,
                   "height": 36
                 },
@@ -463,56 +633,32 @@
                   "$type": "bpmndi:BPMNLabel",
                   "bounds": {
                     "$type": "dc:Bounds",
-                    "x": 167,
-                    "y": 285,
-                    "width": 7,
+                    "x": 157,
+                    "y": 255,
+                    "width": 47,
                     "height": 14
                   }
                 }
               },
               {
                 "$type": "bpmndi:BPMNShape",
-                "id": "Event_0u0vhzl_di",
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 192,
-                  "y": 662,
-                  "width": 36,
-                  "height": 36
-                },
-                "label": {
-                  "$type": "bpmndi:BPMNLabel",
-                  "bounds": {
-                    "$type": "dc:Bounds",
-                    "x": 207,
-                    "y": 705,
-                    "width": 7,
-                    "height": 14
-                  }
-                }
-              },
-              {
-                "$type": "bpmndi:BPMNShape",
-                "id": "Activity_0z1ii88_di",
+                "id": "Activity_0rdg1tk_di",
                 "isExpanded": true,
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 285,
-                  "y": 100,
-                  "width": 565,
-                  "height": 400
-                },
-                "label": {
-                  "$type": "bpmndi:BPMNLabel"
+                  "x": 420,
+                  "y": 80,
+                  "width": 620,
+                  "height": 280
                 }
               },
               {
                 "$type": "bpmndi:BPMNShape",
-                "id": "Event_1w07kch_di",
+                "id": "Event_1ehf527_di",
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 342,
-                  "y": 182,
+                  "x": 460,
+                  "y": 192,
                   "width": 36,
                   "height": 36
                 },
@@ -520,20 +666,20 @@
                   "$type": "bpmndi:BPMNLabel",
                   "bounds": {
                     "$type": "dc:Bounds",
-                    "x": 354,
-                    "y": 225,
-                    "width": 13,
+                    "x": 455,
+                    "y": 235,
+                    "width": 46,
                     "height": 14
                   }
                 }
               },
               {
                 "$type": "bpmndi:BPMNShape",
-                "id": "Activity_1j0f7xd_di",
+                "id": "Activity_15eiw6r_di",
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 430,
-                  "y": 160,
+                  "x": 530,
+                  "y": 170,
                   "width": 100,
                   "height": 80
                 },
@@ -543,11 +689,33 @@
               },
               {
                 "$type": "bpmndi:BPMNShape",
-                "id": "Activity_06vz59z_di",
+                "id": "Gateway_1se4v3w_di",
+                "isMarkerVisible": true,
                 "bounds": {
                   "$type": "dc:Bounds",
-                  "x": 620,
-                  "y": 160,
+                  "x": 665,
+                  "y": 185,
+                  "width": 50,
+                  "height": 50
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel",
+                  "bounds": {
+                    "$type": "dc:Bounds",
+                    "x": 742,
+                    "y": 200,
+                    "width": 56,
+                    "height": 14
+                  }
+                }
+              },
+              {
+                "$type": "bpmndi:BPMNShape",
+                "id": "Activity_0pee75o_di",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 770,
+                  "y": 110,
                   "width": 100,
                   "height": 80
                 },
@@ -556,148 +724,212 @@
                 }
               },
               {
-                "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_0pkwqpe_di",
-                "waypoint": [
-                  {
-                    "$type": "dc:Point",
-                    "x": 378,
-                    "y": 200
-                  },
-                  {
-                    "$type": "dc:Point",
-                    "x": 430,
-                    "y": 200
+                "$type": "bpmndi:BPMNShape",
+                "id": "BPMNShape_1jsvigz",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 770,
+                  "y": 250,
+                  "width": 100,
+                  "height": 80
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel"
+                }
+              },
+              {
+                "$type": "bpmndi:BPMNShape",
+                "id": "BPMNShape_0gltwu3",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 942,
+                  "y": 272,
+                  "width": 36,
+                  "height": 36
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel",
+                  "bounds": {
+                    "$type": "dc:Bounds",
+                    "x": 936,
+                    "y": 315,
+                    "width": 49,
+                    "height": 14
                   }
-                ]
+                }
+              },
+              {
+                "$type": "bpmndi:BPMNShape",
+                "id": "Event_1rwurj0_di",
+                "bounds": {
+                  "$type": "dc:Bounds",
+                  "x": 942,
+                  "y": 132,
+                  "width": 36,
+                  "height": 36
+                },
+                "label": {
+                  "$type": "bpmndi:BPMNLabel",
+                  "bounds": {
+                    "$type": "dc:Bounds",
+                    "x": 936,
+                    "y": 175,
+                    "width": 49,
+                    "height": 14
+                  }
+                }
               },
               {
                 "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_0wioa0e_di",
+                "id": "Flow_096hzw3_di",
                 "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 496,
+                    "y": 210
+                  },
                   {
                     "$type": "dc:Point",
                     "x": 530,
-                    "y": 200
-                  },
-                  {
-                    "$type": "dc:Point",
-                    "x": 620,
-                    "y": 200
-                  }
-                ]
-              },
-              {
-                "$type": "bpmndi:BPMNShape",
-                "id": "Activity_03s6yui_di",
-                "isExpanded": true,
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 285,
-                  "y": 580,
-                  "width": 565,
-                  "height": 360
-                },
-                "label": {
-                  "$type": "bpmndi:BPMNLabel"
-                }
-              },
-              {
-                "$type": "bpmndi:BPMNShape",
-                "id": "Event_0t5y400_di",
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 342,
-                  "y": 662,
-                  "width": 36,
-                  "height": 36
-                },
-                "label": {
-                  "$type": "bpmndi:BPMNLabel",
-                  "bounds": {
-                    "$type": "dc:Bounds",
-                    "x": 354,
-                    "y": 705,
-                    "width": 13,
-                    "height": 14
-                  }
-                }
-              },
-              {
-                "$type": "bpmndi:BPMNShape",
-                "id": "Activity_11vopaz_di",
-                "bounds": {
-                  "$type": "dc:Bounds",
-                  "x": 430,
-                  "y": 640,
-                  "width": 100,
-                  "height": 80
-                },
-                "label": {
-                  "$type": "bpmndi:BPMNLabel"
-                }
-              },
-              {
-                "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_09qtun2_di",
-                "waypoint": [
-                  {
-                    "$type": "dc:Point",
-                    "x": 378,
-                    "y": 680
-                  },
-                  {
-                    "$type": "dc:Point",
-                    "x": 430,
-                    "y": 680
+                    "y": 210
                   }
                 ]
               },
               {
                 "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_0ruewsi_di",
+                "id": "Flow_15c9hl0_di",
                 "waypoint": [
                   {
                     "$type": "dc:Point",
-                    "x": 188,
-                    "y": 260
+                    "x": 630,
+                    "y": 210
                   },
                   {
                     "$type": "dc:Point",
-                    "x": 285,
-                    "y": 260
+                    "x": 665,
+                    "y": 210
                   }
                 ]
               },
               {
                 "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_1is6v5h_di",
+                "id": "Flow_0hhrkrp_di",
                 "waypoint": [
                   {
                     "$type": "dc:Point",
-                    "x": 228,
-                    "y": 680
+                    "x": 690,
+                    "y": 185
                   },
                   {
                     "$type": "dc:Point",
-                    "x": 285,
-                    "y": 680
+                    "x": 690,
+                    "y": 150
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 770,
+                    "y": 150
                   }
                 ]
               },
               {
                 "$type": "bpmndi:BPMNEdge",
-                "id": "Flow_1prqr7v_di",
+                "id": "Flow_1k2z3xr_di",
                 "waypoint": [
                   {
                     "$type": "dc:Point",
-                    "x": 568,
-                    "y": 500
+                    "x": 690,
+                    "y": 235
                   },
                   {
                     "$type": "dc:Point",
-                    "x": 568,
-                    "y": 580
+                    "x": 690,
+                    "y": 290
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 770,
+                    "y": 290
+                  }
+                ]
+              },
+              {
+                "$type": "bpmndi:BPMNEdge",
+                "id": "Flow_08svbbv_di",
+                "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 870,
+                    "y": 150
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 942,
+                    "y": 150
+                  }
+                ]
+              },
+              {
+                "$type": "bpmndi:BPMNEdge",
+                "id": "Flow_11m0f9d_di",
+                "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 870,
+                    "y": 290
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 942,
+                    "y": 290
+                  }
+                ]
+              },
+              {
+                "$type": "bpmndi:BPMNEdge",
+                "id": "Flow_0bqba59_di",
+                "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 198,
+                    "y": 230
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 260,
+                    "y": 230
+                  }
+                ]
+              },
+              {
+                "$type": "bpmndi:BPMNEdge",
+                "id": "Flow_082m1mc_di",
+                "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 360,
+                    "y": 230
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 420,
+                    "y": 230
+                  }
+                ]
+              },
+              {
+                "$type": "bpmndi:BPMNEdge",
+                "id": "Flow_0rmessc_di",
+                "waypoint": [
+                  {
+                    "$type": "dc:Point",
+                    "x": 1040,
+                    "y": 230
+                  },
+                  {
+                    "$type": "dc:Point",
+                    "x": 1112,
+                    "y": 230
                   }
                 ]
               }
@@ -706,195 +938,255 @@
         }
       ]
     },
-    "Process_1bpudnz": {
+    "Process_0dzg6ph": {
       "$type": "bpmn:Process",
-      "id": "Process_1bpudnz",
+      "id": "Process_0dzg6ph",
       "isExecutable": false,
       "flowElements": [
         {
           "$type": "bpmn:StartEvent",
-          "id": "StartEvent_1ibzexp",
-          "name": "1"
+          "id": "StartEvent_0yb13tk",
+          "name": "outerstart"
+        },
+        {
+          "$type": "bpmn:Task",
+          "id": "Activity_1ffg47j",
+          "name": "midway"
+        },
+        {
+          "$type": "bpmn:SequenceFlow",
+          "id": "Flow_0bqba59"
         },
         {
           "$type": "bpmn:SubProcess",
-          "id": "Activity_0z1ii88",
-          "name": "subprocess1",
+          "id": "Activity_0rdg1tk",
           "flowElements": [
             {
               "$type": "bpmn:StartEvent",
-              "id": "Event_1w07kch",
-              "name": "11"
+              "id": "Event_1ehf527",
+              "name": "innerstart"
             },
             {
               "$type": "bpmn:Task",
-              "id": "Activity_1j0f7xd",
-              "name": "12"
+              "id": "Activity_15eiw6r",
+              "name": "innertask1"
             },
             {
               "$type": "bpmn:SequenceFlow",
-              "id": "Flow_0pkwqpe"
+              "id": "Flow_096hzw3"
+            },
+            {
+              "$type": "bpmn:ExclusiveGateway",
+              "id": "Gateway_1se4v3w",
+              "name": "mygateway"
+            },
+            {
+              "$type": "bpmn:SequenceFlow",
+              "id": "Flow_15c9hl0"
             },
             {
               "$type": "bpmn:Task",
-              "id": "Activity_06vz59z",
-              "name": "13"
+              "id": "Activity_0pee75o",
+              "name": "innertask2"
+            },
+            {
+              "$type": "bpmn:Task",
+              "id": "Activity_0e0ayod",
+              "name": "innertask3"
             },
             {
               "$type": "bpmn:SequenceFlow",
-              "id": "Flow_0wioa0e"
+              "id": "Flow_0hhrkrp"
+            },
+            {
+              "$type": "bpmn:SequenceFlow",
+              "id": "Flow_1k2z3xr"
+            },
+            {
+              "$type": "bpmn:EndEvent",
+              "id": "Event_1rwurj0",
+              "name": "innerend1"
+            },
+            {
+              "$type": "bpmn:EndEvent",
+              "id": "Event_0eyhlbj",
+              "name": "innerend2"
+            },
+            {
+              "$type": "bpmn:SequenceFlow",
+              "id": "Flow_08svbbv"
+            },
+            {
+              "$type": "bpmn:SequenceFlow",
+              "id": "Flow_11m0f9d"
             }
           ]
         },
         {
           "$type": "bpmn:SequenceFlow",
-          "id": "Flow_0ruewsi"
+          "id": "Flow_082m1mc"
         },
         {
-          "$type": "bpmn:StartEvent",
-          "id": "Event_0u0vhzl",
-          "name": "2"
-        },
-        {
-          "$type": "bpmn:SubProcess",
-          "id": "Activity_03s6yui",
-          "name": "subprocess2",
-          "flowElements": [
-            {
-              "$type": "bpmn:StartEvent",
-              "id": "Event_0t5y400",
-              "name": "21"
-            },
-            {
-              "$type": "bpmn:Task",
-              "id": "Activity_11vopaz",
-              "name": "22"
-            },
-            {
-              "$type": "bpmn:SequenceFlow",
-              "id": "Flow_09qtun2"
-            }
-          ]
+          "$type": "bpmn:EndEvent",
+          "id": "Event_12yj68a",
+          "name": "outerend"
         },
         {
           "$type": "bpmn:SequenceFlow",
-          "id": "Flow_1is6v5h"
-        },
-        {
-          "$type": "bpmn:SequenceFlow",
-          "id": "Flow_1prqr7v"
+          "id": "Flow_0rmessc"
         }
       ]
     },
-    "StartEvent_1ibzexp": {
+    "StartEvent_0yb13tk": {
       "$type": "bpmn:StartEvent",
-      "id": "StartEvent_1ibzexp",
-      "name": "1"
+      "id": "StartEvent_0yb13tk",
+      "name": "outerstart"
     },
-    "Activity_0z1ii88": {
+    "Activity_1ffg47j": {
+      "$type": "bpmn:Task",
+      "id": "Activity_1ffg47j",
+      "name": "midway"
+    },
+    "Flow_0bqba59": {
+      "$type": "bpmn:SequenceFlow",
+      "id": "Flow_0bqba59"
+    },
+    "Activity_0rdg1tk": {
       "$type": "bpmn:SubProcess",
-      "id": "Activity_0z1ii88",
-      "name": "subprocess1",
+      "id": "Activity_0rdg1tk",
       "flowElements": [
         {
           "$type": "bpmn:StartEvent",
-          "id": "Event_1w07kch",
-          "name": "11"
+          "id": "Event_1ehf527",
+          "name": "innerstart"
         },
         {
           "$type": "bpmn:Task",
-          "id": "Activity_1j0f7xd",
-          "name": "12"
+          "id": "Activity_15eiw6r",
+          "name": "innertask1"
         },
         {
           "$type": "bpmn:SequenceFlow",
-          "id": "Flow_0pkwqpe"
+          "id": "Flow_096hzw3"
+        },
+        {
+          "$type": "bpmn:ExclusiveGateway",
+          "id": "Gateway_1se4v3w",
+          "name": "mygateway"
+        },
+        {
+          "$type": "bpmn:SequenceFlow",
+          "id": "Flow_15c9hl0"
         },
         {
           "$type": "bpmn:Task",
-          "id": "Activity_06vz59z",
-          "name": "13"
+          "id": "Activity_0pee75o",
+          "name": "innertask2"
+        },
+        {
+          "$type": "bpmn:Task",
+          "id": "Activity_0e0ayod",
+          "name": "innertask3"
         },
         {
           "$type": "bpmn:SequenceFlow",
-          "id": "Flow_0wioa0e"
+          "id": "Flow_0hhrkrp"
+        },
+        {
+          "$type": "bpmn:SequenceFlow",
+          "id": "Flow_1k2z3xr"
+        },
+        {
+          "$type": "bpmn:EndEvent",
+          "id": "Event_1rwurj0",
+          "name": "innerend1"
+        },
+        {
+          "$type": "bpmn:EndEvent",
+          "id": "Event_0eyhlbj",
+          "name": "innerend2"
+        },
+        {
+          "$type": "bpmn:SequenceFlow",
+          "id": "Flow_08svbbv"
+        },
+        {
+          "$type": "bpmn:SequenceFlow",
+          "id": "Flow_11m0f9d"
         }
       ]
     },
-    "Event_1w07kch": {
+    "Event_1ehf527": {
       "$type": "bpmn:StartEvent",
-      "id": "Event_1w07kch",
-      "name": "11"
+      "id": "Event_1ehf527",
+      "name": "innerstart"
     },
-    "Activity_1j0f7xd": {
+    "Activity_15eiw6r": {
       "$type": "bpmn:Task",
-      "id": "Activity_1j0f7xd",
-      "name": "12"
+      "id": "Activity_15eiw6r",
+      "name": "innertask1"
     },
-    "Flow_0pkwqpe": {
+    "Flow_096hzw3": {
       "$type": "bpmn:SequenceFlow",
-      "id": "Flow_0pkwqpe"
+      "id": "Flow_096hzw3"
     },
-    "Activity_06vz59z": {
+    "Gateway_1se4v3w": {
+      "$type": "bpmn:ExclusiveGateway",
+      "id": "Gateway_1se4v3w",
+      "name": "mygateway"
+    },
+    "Flow_15c9hl0": {
+      "$type": "bpmn:SequenceFlow",
+      "id": "Flow_15c9hl0"
+    },
+    "Activity_0pee75o": {
       "$type": "bpmn:Task",
-      "id": "Activity_06vz59z",
-      "name": "13"
+      "id": "Activity_0pee75o",
+      "name": "innertask2"
     },
-    "Flow_0wioa0e": {
-      "$type": "bpmn:SequenceFlow",
-      "id": "Flow_0wioa0e"
-    },
-    "Flow_0ruewsi": {
-      "$type": "bpmn:SequenceFlow",
-      "id": "Flow_0ruewsi"
-    },
-    "Event_0u0vhzl": {
-      "$type": "bpmn:StartEvent",
-      "id": "Event_0u0vhzl",
-      "name": "2"
-    },
-    "Activity_03s6yui": {
-      "$type": "bpmn:SubProcess",
-      "id": "Activity_03s6yui",
-      "name": "subprocess2",
-      "flowElements": [
-        {
-          "$type": "bpmn:StartEvent",
-          "id": "Event_0t5y400",
-          "name": "21"
-        },
-        {
-          "$type": "bpmn:Task",
-          "id": "Activity_11vopaz",
-          "name": "22"
-        },
-        {
-          "$type": "bpmn:SequenceFlow",
-          "id": "Flow_09qtun2"
-        }
-      ]
-    },
-    "Event_0t5y400": {
-      "$type": "bpmn:StartEvent",
-      "id": "Event_0t5y400",
-      "name": "21"
-    },
-    "Activity_11vopaz": {
+    "Activity_0e0ayod": {
       "$type": "bpmn:Task",
-      "id": "Activity_11vopaz",
-      "name": "22"
+      "id": "Activity_0e0ayod",
+      "name": "innertask3"
     },
-    "Flow_09qtun2": {
+    "Flow_0hhrkrp": {
       "$type": "bpmn:SequenceFlow",
-      "id": "Flow_09qtun2"
+      "id": "Flow_0hhrkrp"
     },
-    "Flow_1is6v5h": {
+    "Flow_1k2z3xr": {
       "$type": "bpmn:SequenceFlow",
-      "id": "Flow_1is6v5h"
+      "id": "Flow_1k2z3xr"
     },
-    "Flow_1prqr7v": {
+    "Event_1rwurj0": {
+      "$type": "bpmn:EndEvent",
+      "id": "Event_1rwurj0",
+      "name": "innerend1"
+    },
+    "Event_0eyhlbj": {
+      "$type": "bpmn:EndEvent",
+      "id": "Event_0eyhlbj",
+      "name": "innerend2"
+    },
+    "Flow_08svbbv": {
       "$type": "bpmn:SequenceFlow",
-      "id": "Flow_1prqr7v"
+      "id": "Flow_08svbbv"
+    },
+    "Flow_11m0f9d": {
+      "$type": "bpmn:SequenceFlow",
+      "id": "Flow_11m0f9d"
+    },
+    "Flow_082m1mc": {
+      "$type": "bpmn:SequenceFlow",
+      "id": "Flow_082m1mc"
+    },
+    "Event_12yj68a": {
+      "$type": "bpmn:EndEvent",
+      "id": "Event_12yj68a",
+      "name": "outerend"
+    },
+    "Flow_0rmessc": {
+      "$type": "bpmn:SequenceFlow",
+      "id": "Flow_0rmessc"
     },
     "BPMNDiagram_1": {
       "$type": "bpmndi:BPMNDiagram",
@@ -905,11 +1197,46 @@
         "planeElement": [
           {
             "$type": "bpmndi:BPMNShape",
+            "id": "Activity_1ffg47j_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 260,
+              "y": 190,
+              "width": 100,
+              "height": 80
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel"
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Event_12yj68a_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 1112,
+              "y": 212,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 1109,
+                "y": 255,
+                "width": 44,
+                "height": 14
+              }
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
             "id": "_BPMNShape_StartEvent_2",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 152,
-              "y": 242,
+              "x": 162,
+              "y": 212,
               "width": 36,
               "height": 36
             },
@@ -917,56 +1244,32 @@
               "$type": "bpmndi:BPMNLabel",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 167,
-                "y": 285,
-                "width": 7,
+                "x": 157,
+                "y": 255,
+                "width": 47,
                 "height": 14
               }
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Event_0u0vhzl_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 192,
-              "y": 662,
-              "width": 36,
-              "height": 36
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 207,
-                "y": 705,
-                "width": 7,
-                "height": 14
-              }
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_0z1ii88_di",
+            "id": "Activity_0rdg1tk_di",
             "isExpanded": true,
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 285,
-              "y": 100,
-              "width": 565,
-              "height": 400
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
+              "x": 420,
+              "y": 80,
+              "width": 620,
+              "height": 280
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Event_1w07kch_di",
+            "id": "Event_1ehf527_di",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 342,
-              "y": 182,
+              "x": 460,
+              "y": 192,
               "width": 36,
               "height": 36
             },
@@ -974,20 +1277,20 @@
               "$type": "bpmndi:BPMNLabel",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 354,
-                "y": 225,
-                "width": 13,
+                "x": 455,
+                "y": 235,
+                "width": 46,
                 "height": 14
               }
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Activity_1j0f7xd_di",
+            "id": "Activity_15eiw6r_di",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 430,
-              "y": 160,
+              "x": 530,
+              "y": 170,
               "width": 100,
               "height": 80
             },
@@ -997,11 +1300,33 @@
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Activity_06vz59z_di",
+            "id": "Gateway_1se4v3w_di",
+            "isMarkerVisible": true,
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 620,
-              "y": 160,
+              "x": 665,
+              "y": 185,
+              "width": 50,
+              "height": 50
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 742,
+                "y": 200,
+                "width": 56,
+                "height": 14
+              }
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Activity_0pee75o_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 770,
+              "y": 110,
               "width": 100,
               "height": 80
             },
@@ -1010,148 +1335,212 @@
             }
           },
           {
-            "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0pkwqpe_di",
-            "waypoint": [
-              {
-                "$type": "dc:Point",
-                "x": 378,
-                "y": 200
-              },
-              {
-                "$type": "dc:Point",
-                "x": 430,
-                "y": 200
+            "$type": "bpmndi:BPMNShape",
+            "id": "BPMNShape_1jsvigz",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 770,
+              "y": 250,
+              "width": 100,
+              "height": 80
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel"
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "BPMNShape_0gltwu3",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 942,
+              "y": 272,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 936,
+                "y": 315,
+                "width": 49,
+                "height": 14
               }
-            ]
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Event_1rwurj0_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 942,
+              "y": 132,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 936,
+                "y": 175,
+                "width": 49,
+                "height": 14
+              }
+            }
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0wioa0e_di",
+            "id": "Flow_096hzw3_di",
             "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 496,
+                "y": 210
+              },
               {
                 "$type": "dc:Point",
                 "x": 530,
-                "y": 200
-              },
-              {
-                "$type": "dc:Point",
-                "x": 620,
-                "y": 200
-              }
-            ]
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_03s6yui_di",
-            "isExpanded": true,
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 285,
-              "y": 580,
-              "width": 565,
-              "height": 360
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Event_0t5y400_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 342,
-              "y": 662,
-              "width": 36,
-              "height": 36
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 354,
-                "y": 705,
-                "width": 13,
-                "height": 14
-              }
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_11vopaz_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 430,
-              "y": 640,
-              "width": 100,
-              "height": 80
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_09qtun2_di",
-            "waypoint": [
-              {
-                "$type": "dc:Point",
-                "x": 378,
-                "y": 680
-              },
-              {
-                "$type": "dc:Point",
-                "x": 430,
-                "y": 680
+                "y": 210
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0ruewsi_di",
+            "id": "Flow_15c9hl0_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 188,
-                "y": 260
+                "x": 630,
+                "y": 210
               },
               {
                 "$type": "dc:Point",
-                "x": 285,
-                "y": 260
+                "x": 665,
+                "y": 210
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_1is6v5h_di",
+            "id": "Flow_0hhrkrp_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 228,
-                "y": 680
+                "x": 690,
+                "y": 185
               },
               {
                 "$type": "dc:Point",
-                "x": 285,
-                "y": 680
+                "x": 690,
+                "y": 150
+              },
+              {
+                "$type": "dc:Point",
+                "x": 770,
+                "y": 150
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_1prqr7v_di",
+            "id": "Flow_1k2z3xr_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 568,
-                "y": 500
+                "x": 690,
+                "y": 235
               },
               {
                 "$type": "dc:Point",
-                "x": 568,
-                "y": 580
+                "x": 690,
+                "y": 290
+              },
+              {
+                "$type": "dc:Point",
+                "x": 770,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_08svbbv_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 870,
+                "y": 150
+              },
+              {
+                "$type": "dc:Point",
+                "x": 942,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_11m0f9d_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 870,
+                "y": 290
+              },
+              {
+                "$type": "dc:Point",
+                "x": 942,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_0bqba59_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 198,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 260,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_082m1mc_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 360,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 420,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_0rmessc_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 1040,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 1112,
+                "y": 230
               }
             ]
           }
@@ -1164,11 +1553,46 @@
       "planeElement": [
         {
           "$type": "bpmndi:BPMNShape",
+          "id": "Activity_1ffg47j_di",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 260,
+            "y": 190,
+            "width": 100,
+            "height": 80
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel"
+          }
+        },
+        {
+          "$type": "bpmndi:BPMNShape",
+          "id": "Event_12yj68a_di",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 1112,
+            "y": 212,
+            "width": 36,
+            "height": 36
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 1109,
+              "y": 255,
+              "width": 44,
+              "height": 14
+            }
+          }
+        },
+        {
+          "$type": "bpmndi:BPMNShape",
           "id": "_BPMNShape_StartEvent_2",
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 152,
-            "y": 242,
+            "x": 162,
+            "y": 212,
             "width": 36,
             "height": 36
           },
@@ -1176,56 +1600,32 @@
             "$type": "bpmndi:BPMNLabel",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 167,
-              "y": 285,
-              "width": 7,
+              "x": 157,
+              "y": 255,
+              "width": 47,
               "height": 14
             }
           }
         },
         {
           "$type": "bpmndi:BPMNShape",
-          "id": "Event_0u0vhzl_di",
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 192,
-            "y": 662,
-            "width": 36,
-            "height": 36
-          },
-          "label": {
-            "$type": "bpmndi:BPMNLabel",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 207,
-              "y": 705,
-              "width": 7,
-              "height": 14
-            }
-          }
-        },
-        {
-          "$type": "bpmndi:BPMNShape",
-          "id": "Activity_0z1ii88_di",
+          "id": "Activity_0rdg1tk_di",
           "isExpanded": true,
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 285,
-            "y": 100,
-            "width": 565,
-            "height": 400
-          },
-          "label": {
-            "$type": "bpmndi:BPMNLabel"
+            "x": 420,
+            "y": 80,
+            "width": 620,
+            "height": 280
           }
         },
         {
           "$type": "bpmndi:BPMNShape",
-          "id": "Event_1w07kch_di",
+          "id": "Event_1ehf527_di",
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 342,
-            "y": 182,
+            "x": 460,
+            "y": 192,
             "width": 36,
             "height": 36
           },
@@ -1233,20 +1633,20 @@
             "$type": "bpmndi:BPMNLabel",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 354,
-              "y": 225,
-              "width": 13,
+              "x": 455,
+              "y": 235,
+              "width": 46,
               "height": 14
             }
           }
         },
         {
           "$type": "bpmndi:BPMNShape",
-          "id": "Activity_1j0f7xd_di",
+          "id": "Activity_15eiw6r_di",
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 430,
-            "y": 160,
+            "x": 530,
+            "y": 170,
             "width": 100,
             "height": 80
           },
@@ -1256,11 +1656,33 @@
         },
         {
           "$type": "bpmndi:BPMNShape",
-          "id": "Activity_06vz59z_di",
+          "id": "Gateway_1se4v3w_di",
+          "isMarkerVisible": true,
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 620,
-            "y": 160,
+            "x": 665,
+            "y": 185,
+            "width": 50,
+            "height": 50
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 742,
+              "y": 200,
+              "width": 56,
+              "height": 14
+            }
+          }
+        },
+        {
+          "$type": "bpmndi:BPMNShape",
+          "id": "Activity_0pee75o_di",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 770,
+            "y": 110,
             "width": 100,
             "height": 80
           },
@@ -1269,160 +1691,259 @@
           }
         },
         {
-          "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_0pkwqpe_di",
-          "waypoint": [
-            {
-              "$type": "dc:Point",
-              "x": 378,
-              "y": 200
-            },
-            {
-              "$type": "dc:Point",
-              "x": 430,
-              "y": 200
+          "$type": "bpmndi:BPMNShape",
+          "id": "BPMNShape_1jsvigz",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 770,
+            "y": 250,
+            "width": 100,
+            "height": 80
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel"
+          }
+        },
+        {
+          "$type": "bpmndi:BPMNShape",
+          "id": "BPMNShape_0gltwu3",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 942,
+            "y": 272,
+            "width": 36,
+            "height": 36
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 936,
+              "y": 315,
+              "width": 49,
+              "height": 14
             }
-          ]
+          }
+        },
+        {
+          "$type": "bpmndi:BPMNShape",
+          "id": "Event_1rwurj0_di",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 942,
+            "y": 132,
+            "width": 36,
+            "height": 36
+          },
+          "label": {
+            "$type": "bpmndi:BPMNLabel",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 936,
+              "y": 175,
+              "width": 49,
+              "height": 14
+            }
+          }
         },
         {
           "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_0wioa0e_di",
+          "id": "Flow_096hzw3_di",
           "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 496,
+              "y": 210
+            },
             {
               "$type": "dc:Point",
               "x": 530,
-              "y": 200
-            },
-            {
-              "$type": "dc:Point",
-              "x": 620,
-              "y": 200
-            }
-          ]
-        },
-        {
-          "$type": "bpmndi:BPMNShape",
-          "id": "Activity_03s6yui_di",
-          "isExpanded": true,
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 285,
-            "y": 580,
-            "width": 565,
-            "height": 360
-          },
-          "label": {
-            "$type": "bpmndi:BPMNLabel"
-          }
-        },
-        {
-          "$type": "bpmndi:BPMNShape",
-          "id": "Event_0t5y400_di",
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 342,
-            "y": 662,
-            "width": 36,
-            "height": 36
-          },
-          "label": {
-            "$type": "bpmndi:BPMNLabel",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 354,
-              "y": 705,
-              "width": 13,
-              "height": 14
-            }
-          }
-        },
-        {
-          "$type": "bpmndi:BPMNShape",
-          "id": "Activity_11vopaz_di",
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 430,
-            "y": 640,
-            "width": 100,
-            "height": 80
-          },
-          "label": {
-            "$type": "bpmndi:BPMNLabel"
-          }
-        },
-        {
-          "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_09qtun2_di",
-          "waypoint": [
-            {
-              "$type": "dc:Point",
-              "x": 378,
-              "y": 680
-            },
-            {
-              "$type": "dc:Point",
-              "x": 430,
-              "y": 680
+              "y": 210
             }
           ]
         },
         {
           "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_0ruewsi_di",
+          "id": "Flow_15c9hl0_di",
           "waypoint": [
             {
               "$type": "dc:Point",
-              "x": 188,
-              "y": 260
+              "x": 630,
+              "y": 210
             },
             {
               "$type": "dc:Point",
-              "x": 285,
-              "y": 260
+              "x": 665,
+              "y": 210
             }
           ]
         },
         {
           "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_1is6v5h_di",
+          "id": "Flow_0hhrkrp_di",
           "waypoint": [
             {
               "$type": "dc:Point",
-              "x": 228,
-              "y": 680
+              "x": 690,
+              "y": 185
             },
             {
               "$type": "dc:Point",
-              "x": 285,
-              "y": 680
+              "x": 690,
+              "y": 150
+            },
+            {
+              "$type": "dc:Point",
+              "x": 770,
+              "y": 150
             }
           ]
         },
         {
           "$type": "bpmndi:BPMNEdge",
-          "id": "Flow_1prqr7v_di",
+          "id": "Flow_1k2z3xr_di",
           "waypoint": [
             {
               "$type": "dc:Point",
-              "x": 568,
-              "y": 500
+              "x": 690,
+              "y": 235
             },
             {
               "$type": "dc:Point",
-              "x": 568,
-              "y": 580
+              "x": 690,
+              "y": 290
+            },
+            {
+              "$type": "dc:Point",
+              "x": 770,
+              "y": 290
+            }
+          ]
+        },
+        {
+          "$type": "bpmndi:BPMNEdge",
+          "id": "Flow_08svbbv_di",
+          "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 870,
+              "y": 150
+            },
+            {
+              "$type": "dc:Point",
+              "x": 942,
+              "y": 150
+            }
+          ]
+        },
+        {
+          "$type": "bpmndi:BPMNEdge",
+          "id": "Flow_11m0f9d_di",
+          "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 870,
+              "y": 290
+            },
+            {
+              "$type": "dc:Point",
+              "x": 942,
+              "y": 290
+            }
+          ]
+        },
+        {
+          "$type": "bpmndi:BPMNEdge",
+          "id": "Flow_0bqba59_di",
+          "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 198,
+              "y": 230
+            },
+            {
+              "$type": "dc:Point",
+              "x": 260,
+              "y": 230
+            }
+          ]
+        },
+        {
+          "$type": "bpmndi:BPMNEdge",
+          "id": "Flow_082m1mc_di",
+          "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 360,
+              "y": 230
+            },
+            {
+              "$type": "dc:Point",
+              "x": 420,
+              "y": 230
+            }
+          ]
+        },
+        {
+          "$type": "bpmndi:BPMNEdge",
+          "id": "Flow_0rmessc_di",
+          "waypoint": [
+            {
+              "$type": "dc:Point",
+              "x": 1040,
+              "y": 230
+            },
+            {
+              "$type": "dc:Point",
+              "x": 1112,
+              "y": 230
             }
           ]
         }
       ]
+    },
+    "Activity_1ffg47j_di": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "Activity_1ffg47j_di",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 260,
+        "y": 190,
+        "width": 100,
+        "height": 80
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel"
+      }
+    },
+    "Event_12yj68a_di": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "Event_12yj68a_di",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 1112,
+        "y": 212,
+        "width": 36,
+        "height": 36
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 1109,
+          "y": 255,
+          "width": 44,
+          "height": 14
+        }
+      }
     },
     "_BPMNShape_StartEvent_2": {
       "$type": "bpmndi:BPMNShape",
       "id": "_BPMNShape_StartEvent_2",
       "bounds": {
         "$type": "dc:Bounds",
-        "x": 152,
-        "y": 242,
+        "x": 162,
+        "y": 212,
         "width": 36,
         "height": 36
       },
@@ -1430,56 +1951,32 @@
         "$type": "bpmndi:BPMNLabel",
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 167,
-          "y": 285,
-          "width": 7,
+          "x": 157,
+          "y": 255,
+          "width": 47,
           "height": 14
         }
       }
     },
-    "Event_0u0vhzl_di": {
+    "Activity_0rdg1tk_di": {
       "$type": "bpmndi:BPMNShape",
-      "id": "Event_0u0vhzl_di",
-      "bounds": {
-        "$type": "dc:Bounds",
-        "x": 192,
-        "y": 662,
-        "width": 36,
-        "height": 36
-      },
-      "label": {
-        "$type": "bpmndi:BPMNLabel",
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 207,
-          "y": 705,
-          "width": 7,
-          "height": 14
-        }
-      }
-    },
-    "Activity_0z1ii88_di": {
-      "$type": "bpmndi:BPMNShape",
-      "id": "Activity_0z1ii88_di",
+      "id": "Activity_0rdg1tk_di",
       "isExpanded": true,
       "bounds": {
         "$type": "dc:Bounds",
-        "x": 285,
-        "y": 100,
-        "width": 565,
-        "height": 400
-      },
-      "label": {
-        "$type": "bpmndi:BPMNLabel"
+        "x": 420,
+        "y": 80,
+        "width": 620,
+        "height": 280
       }
     },
-    "Event_1w07kch_di": {
+    "Event_1ehf527_di": {
       "$type": "bpmndi:BPMNShape",
-      "id": "Event_1w07kch_di",
+      "id": "Event_1ehf527_di",
       "bounds": {
         "$type": "dc:Bounds",
-        "x": 342,
-        "y": 182,
+        "x": 460,
+        "y": 192,
         "width": 36,
         "height": 36
       },
@@ -1487,20 +1984,20 @@
         "$type": "bpmndi:BPMNLabel",
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 354,
-          "y": 225,
-          "width": 13,
+          "x": 455,
+          "y": 235,
+          "width": 46,
           "height": 14
         }
       }
     },
-    "Activity_1j0f7xd_di": {
+    "Activity_15eiw6r_di": {
       "$type": "bpmndi:BPMNShape",
-      "id": "Activity_1j0f7xd_di",
+      "id": "Activity_15eiw6r_di",
       "bounds": {
         "$type": "dc:Bounds",
-        "x": 430,
-        "y": 160,
+        "x": 530,
+        "y": 170,
         "width": 100,
         "height": 80
       },
@@ -1508,163 +2005,249 @@
         "$type": "bpmndi:BPMNLabel"
       }
     },
-    "Activity_06vz59z_di": {
+    "Gateway_1se4v3w_di": {
       "$type": "bpmndi:BPMNShape",
-      "id": "Activity_06vz59z_di",
+      "id": "Gateway_1se4v3w_di",
+      "isMarkerVisible": true,
       "bounds": {
         "$type": "dc:Bounds",
-        "x": 620,
-        "y": 160,
-        "width": 100,
-        "height": 80
+        "x": 665,
+        "y": 185,
+        "width": 50,
+        "height": 50
       },
       "label": {
-        "$type": "bpmndi:BPMNLabel"
-      }
-    },
-    "Flow_0pkwqpe_di": {
-      "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_0pkwqpe_di",
-      "waypoint": [
-        {
-          "$type": "dc:Point",
-          "x": 378,
-          "y": 200
-        },
-        {
-          "$type": "dc:Point",
-          "x": 430,
-          "y": 200
+        "$type": "bpmndi:BPMNLabel",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 742,
+          "y": 200,
+          "width": 56,
+          "height": 14
         }
-      ]
+      }
     },
-    "Flow_0wioa0e_di": {
+    "Activity_0pee75o_di": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "Activity_0pee75o_di",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 770,
+        "y": 110,
+        "width": 100,
+        "height": 80
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel"
+      }
+    },
+    "BPMNShape_1jsvigz": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "BPMNShape_1jsvigz",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 770,
+        "y": 250,
+        "width": 100,
+        "height": 80
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel"
+      }
+    },
+    "BPMNShape_0gltwu3": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "BPMNShape_0gltwu3",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 942,
+        "y": 272,
+        "width": 36,
+        "height": 36
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 936,
+          "y": 315,
+          "width": 49,
+          "height": 14
+        }
+      }
+    },
+    "Event_1rwurj0_di": {
+      "$type": "bpmndi:BPMNShape",
+      "id": "Event_1rwurj0_di",
+      "bounds": {
+        "$type": "dc:Bounds",
+        "x": 942,
+        "y": 132,
+        "width": 36,
+        "height": 36
+      },
+      "label": {
+        "$type": "bpmndi:BPMNLabel",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 936,
+          "y": 175,
+          "width": 49,
+          "height": 14
+        }
+      }
+    },
+    "Flow_096hzw3_di": {
       "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_0wioa0e_di",
+      "id": "Flow_096hzw3_di",
       "waypoint": [
+        {
+          "$type": "dc:Point",
+          "x": 496,
+          "y": 210
+        },
         {
           "$type": "dc:Point",
           "x": 530,
-          "y": 200
-        },
-        {
-          "$type": "dc:Point",
-          "x": 620,
-          "y": 200
+          "y": 210
         }
       ]
     },
-    "Activity_03s6yui_di": {
-      "$type": "bpmndi:BPMNShape",
-      "id": "Activity_03s6yui_di",
-      "isExpanded": true,
-      "bounds": {
-        "$type": "dc:Bounds",
-        "x": 285,
-        "y": 580,
-        "width": 565,
-        "height": 360
-      },
-      "label": {
-        "$type": "bpmndi:BPMNLabel"
-      }
-    },
-    "Event_0t5y400_di": {
-      "$type": "bpmndi:BPMNShape",
-      "id": "Event_0t5y400_di",
-      "bounds": {
-        "$type": "dc:Bounds",
-        "x": 342,
-        "y": 662,
-        "width": 36,
-        "height": 36
-      },
-      "label": {
-        "$type": "bpmndi:BPMNLabel",
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 354,
-          "y": 705,
-          "width": 13,
-          "height": 14
-        }
-      }
-    },
-    "Activity_11vopaz_di": {
-      "$type": "bpmndi:BPMNShape",
-      "id": "Activity_11vopaz_di",
-      "bounds": {
-        "$type": "dc:Bounds",
-        "x": 430,
-        "y": 640,
-        "width": 100,
-        "height": 80
-      },
-      "label": {
-        "$type": "bpmndi:BPMNLabel"
-      }
-    },
-    "Flow_09qtun2_di": {
+    "Flow_15c9hl0_di": {
       "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_09qtun2_di",
+      "id": "Flow_15c9hl0_di",
       "waypoint": [
         {
           "$type": "dc:Point",
-          "x": 378,
-          "y": 680
+          "x": 630,
+          "y": 210
         },
         {
           "$type": "dc:Point",
-          "x": 430,
-          "y": 680
+          "x": 665,
+          "y": 210
         }
       ]
     },
-    "Flow_0ruewsi_di": {
+    "Flow_0hhrkrp_di": {
       "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_0ruewsi_di",
+      "id": "Flow_0hhrkrp_di",
       "waypoint": [
         {
           "$type": "dc:Point",
-          "x": 188,
-          "y": 260
+          "x": 690,
+          "y": 185
         },
         {
           "$type": "dc:Point",
-          "x": 285,
-          "y": 260
+          "x": 690,
+          "y": 150
+        },
+        {
+          "$type": "dc:Point",
+          "x": 770,
+          "y": 150
         }
       ]
     },
-    "Flow_1is6v5h_di": {
+    "Flow_1k2z3xr_di": {
       "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_1is6v5h_di",
+      "id": "Flow_1k2z3xr_di",
       "waypoint": [
         {
           "$type": "dc:Point",
-          "x": 228,
-          "y": 680
+          "x": 690,
+          "y": 235
         },
         {
           "$type": "dc:Point",
-          "x": 285,
-          "y": 680
+          "x": 690,
+          "y": 290
+        },
+        {
+          "$type": "dc:Point",
+          "x": 770,
+          "y": 290
         }
       ]
     },
-    "Flow_1prqr7v_di": {
+    "Flow_08svbbv_di": {
       "$type": "bpmndi:BPMNEdge",
-      "id": "Flow_1prqr7v_di",
+      "id": "Flow_08svbbv_di",
       "waypoint": [
         {
           "$type": "dc:Point",
-          "x": 568,
-          "y": 500
+          "x": 870,
+          "y": 150
         },
         {
           "$type": "dc:Point",
-          "x": 568,
-          "y": 580
+          "x": 942,
+          "y": 150
+        }
+      ]
+    },
+    "Flow_11m0f9d_di": {
+      "$type": "bpmndi:BPMNEdge",
+      "id": "Flow_11m0f9d_di",
+      "waypoint": [
+        {
+          "$type": "dc:Point",
+          "x": 870,
+          "y": 290
+        },
+        {
+          "$type": "dc:Point",
+          "x": 942,
+          "y": 290
+        }
+      ]
+    },
+    "Flow_0bqba59_di": {
+      "$type": "bpmndi:BPMNEdge",
+      "id": "Flow_0bqba59_di",
+      "waypoint": [
+        {
+          "$type": "dc:Point",
+          "x": 198,
+          "y": 230
+        },
+        {
+          "$type": "dc:Point",
+          "x": 260,
+          "y": 230
+        }
+      ]
+    },
+    "Flow_082m1mc_di": {
+      "$type": "bpmndi:BPMNEdge",
+      "id": "Flow_082m1mc_di",
+      "waypoint": [
+        {
+          "$type": "dc:Point",
+          "x": 360,
+          "y": 230
+        },
+        {
+          "$type": "dc:Point",
+          "x": 420,
+          "y": 230
+        }
+      ]
+    },
+    "Flow_0rmessc_di": {
+      "$type": "bpmndi:BPMNEdge",
+      "id": "Flow_0rmessc_di",
+      "waypoint": [
+        {
+          "$type": "dc:Point",
+          "x": 1040,
+          "y": 230
+        },
+        {
+          "$type": "dc:Point",
+          "x": 1112,
+          "y": 230
         }
       ]
     }
@@ -1672,289 +2255,429 @@
   "references": [
     {
       "property": "bpmn:outgoing",
-      "id": "Flow_0ruewsi",
+      "id": "Flow_0bqba59",
       "element": {
         "$type": "bpmn:StartEvent",
-        "id": "StartEvent_1ibzexp",
-        "name": "1"
+        "id": "StartEvent_0yb13tk",
+        "name": "outerstart"
       }
     },
     {
       "property": "bpmn:incoming",
-      "id": "Flow_0ruewsi",
+      "id": "Flow_0bqba59",
+      "element": {
+        "$type": "bpmn:Task",
+        "id": "Activity_1ffg47j",
+        "name": "midway"
+      }
+    },
+    {
+      "property": "bpmn:outgoing",
+      "id": "Flow_082m1mc",
+      "element": {
+        "$type": "bpmn:Task",
+        "id": "Activity_1ffg47j",
+        "name": "midway"
+      }
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_0bqba59"
+      },
+      "property": "bpmn:sourceRef",
+      "id": "StartEvent_0yb13tk"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_0bqba59"
+      },
+      "property": "bpmn:targetRef",
+      "id": "Activity_1ffg47j"
+    },
+    {
+      "property": "bpmn:incoming",
+      "id": "Flow_082m1mc",
       "element": {
         "$type": "bpmn:SubProcess",
-        "id": "Activity_0z1ii88",
-        "name": "subprocess1",
+        "id": "Activity_0rdg1tk",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
-            "id": "Event_1w07kch",
-            "name": "11"
+            "id": "Event_1ehf527",
+            "name": "innerstart"
           },
           {
             "$type": "bpmn:Task",
-            "id": "Activity_1j0f7xd",
-            "name": "12"
+            "id": "Activity_15eiw6r",
+            "name": "innertask1"
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_0pkwqpe"
+            "id": "Flow_096hzw3"
+          },
+          {
+            "$type": "bpmn:ExclusiveGateway",
+            "id": "Gateway_1se4v3w",
+            "name": "mygateway"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_15c9hl0"
           },
           {
             "$type": "bpmn:Task",
-            "id": "Activity_06vz59z",
-            "name": "13"
+            "id": "Activity_0pee75o",
+            "name": "innertask2"
+          },
+          {
+            "$type": "bpmn:Task",
+            "id": "Activity_0e0ayod",
+            "name": "innertask3"
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_0wioa0e"
+            "id": "Flow_0hhrkrp"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_1k2z3xr"
+          },
+          {
+            "$type": "bpmn:EndEvent",
+            "id": "Event_1rwurj0",
+            "name": "innerend1"
+          },
+          {
+            "$type": "bpmn:EndEvent",
+            "id": "Event_0eyhlbj",
+            "name": "innerend2"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_08svbbv"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_11m0f9d"
           }
         ]
       }
     },
     {
       "property": "bpmn:outgoing",
-      "id": "Flow_1prqr7v",
+      "id": "Flow_0rmessc",
       "element": {
         "$type": "bpmn:SubProcess",
-        "id": "Activity_0z1ii88",
-        "name": "subprocess1",
+        "id": "Activity_0rdg1tk",
         "flowElements": [
           {
             "$type": "bpmn:StartEvent",
-            "id": "Event_1w07kch",
-            "name": "11"
+            "id": "Event_1ehf527",
+            "name": "innerstart"
           },
           {
             "$type": "bpmn:Task",
-            "id": "Activity_1j0f7xd",
-            "name": "12"
+            "id": "Activity_15eiw6r",
+            "name": "innertask1"
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_0pkwqpe"
+            "id": "Flow_096hzw3"
+          },
+          {
+            "$type": "bpmn:ExclusiveGateway",
+            "id": "Gateway_1se4v3w",
+            "name": "mygateway"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_15c9hl0"
           },
           {
             "$type": "bpmn:Task",
-            "id": "Activity_06vz59z",
-            "name": "13"
+            "id": "Activity_0pee75o",
+            "name": "innertask2"
+          },
+          {
+            "$type": "bpmn:Task",
+            "id": "Activity_0e0ayod",
+            "name": "innertask3"
           },
           {
             "$type": "bpmn:SequenceFlow",
-            "id": "Flow_0wioa0e"
+            "id": "Flow_0hhrkrp"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_1k2z3xr"
+          },
+          {
+            "$type": "bpmn:EndEvent",
+            "id": "Event_1rwurj0",
+            "name": "innerend1"
+          },
+          {
+            "$type": "bpmn:EndEvent",
+            "id": "Event_0eyhlbj",
+            "name": "innerend2"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_08svbbv"
+          },
+          {
+            "$type": "bpmn:SequenceFlow",
+            "id": "Flow_11m0f9d"
           }
         ]
       }
     },
     {
       "property": "bpmn:outgoing",
-      "id": "Flow_0pkwqpe",
+      "id": "Flow_096hzw3",
       "element": {
         "$type": "bpmn:StartEvent",
-        "id": "Event_1w07kch",
-        "name": "11"
+        "id": "Event_1ehf527",
+        "name": "innerstart"
       }
     },
     {
       "property": "bpmn:incoming",
-      "id": "Flow_0pkwqpe",
+      "id": "Flow_096hzw3",
       "element": {
         "$type": "bpmn:Task",
-        "id": "Activity_1j0f7xd",
-        "name": "12"
+        "id": "Activity_15eiw6r",
+        "name": "innertask1"
       }
     },
     {
       "property": "bpmn:outgoing",
-      "id": "Flow_0wioa0e",
+      "id": "Flow_15c9hl0",
       "element": {
         "$type": "bpmn:Task",
-        "id": "Activity_1j0f7xd",
-        "name": "12"
+        "id": "Activity_15eiw6r",
+        "name": "innertask1"
       }
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0pkwqpe"
+        "id": "Flow_096hzw3"
       },
       "property": "bpmn:sourceRef",
-      "id": "Event_1w07kch"
+      "id": "Event_1ehf527"
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0pkwqpe"
+        "id": "Flow_096hzw3"
       },
       "property": "bpmn:targetRef",
-      "id": "Activity_1j0f7xd"
+      "id": "Activity_15eiw6r"
     },
     {
       "property": "bpmn:incoming",
-      "id": "Flow_0wioa0e",
+      "id": "Flow_15c9hl0",
       "element": {
-        "$type": "bpmn:Task",
-        "id": "Activity_06vz59z",
-        "name": "13"
-      }
-    },
-    {
-      "element": {
-        "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0wioa0e"
-      },
-      "property": "bpmn:sourceRef",
-      "id": "Activity_1j0f7xd"
-    },
-    {
-      "element": {
-        "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0wioa0e"
-      },
-      "property": "bpmn:targetRef",
-      "id": "Activity_06vz59z"
-    },
-    {
-      "element": {
-        "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0ruewsi"
-      },
-      "property": "bpmn:sourceRef",
-      "id": "StartEvent_1ibzexp"
-    },
-    {
-      "element": {
-        "$type": "bpmn:SequenceFlow",
-        "id": "Flow_0ruewsi"
-      },
-      "property": "bpmn:targetRef",
-      "id": "Activity_0z1ii88"
-    },
-    {
-      "property": "bpmn:outgoing",
-      "id": "Flow_1is6v5h",
-      "element": {
-        "$type": "bpmn:StartEvent",
-        "id": "Event_0u0vhzl",
-        "name": "2"
-      }
-    },
-    {
-      "property": "bpmn:incoming",
-      "id": "Flow_1is6v5h",
-      "element": {
-        "$type": "bpmn:SubProcess",
-        "id": "Activity_03s6yui",
-        "name": "subprocess2",
-        "flowElements": [
-          {
-            "$type": "bpmn:StartEvent",
-            "id": "Event_0t5y400",
-            "name": "21"
-          },
-          {
-            "$type": "bpmn:Task",
-            "id": "Activity_11vopaz",
-            "name": "22"
-          },
-          {
-            "$type": "bpmn:SequenceFlow",
-            "id": "Flow_09qtun2"
-          }
-        ]
-      }
-    },
-    {
-      "property": "bpmn:incoming",
-      "id": "Flow_1prqr7v",
-      "element": {
-        "$type": "bpmn:SubProcess",
-        "id": "Activity_03s6yui",
-        "name": "subprocess2",
-        "flowElements": [
-          {
-            "$type": "bpmn:StartEvent",
-            "id": "Event_0t5y400",
-            "name": "21"
-          },
-          {
-            "$type": "bpmn:Task",
-            "id": "Activity_11vopaz",
-            "name": "22"
-          },
-          {
-            "$type": "bpmn:SequenceFlow",
-            "id": "Flow_09qtun2"
-          }
-        ]
+        "$type": "bpmn:ExclusiveGateway",
+        "id": "Gateway_1se4v3w",
+        "name": "mygateway"
       }
     },
     {
       "property": "bpmn:outgoing",
-      "id": "Flow_09qtun2",
+      "id": "Flow_0hhrkrp",
       "element": {
-        "$type": "bpmn:StartEvent",
-        "id": "Event_0t5y400",
-        "name": "21"
+        "$type": "bpmn:ExclusiveGateway",
+        "id": "Gateway_1se4v3w",
+        "name": "mygateway"
+      }
+    },
+    {
+      "property": "bpmn:outgoing",
+      "id": "Flow_1k2z3xr",
+      "element": {
+        "$type": "bpmn:ExclusiveGateway",
+        "id": "Gateway_1se4v3w",
+        "name": "mygateway"
+      }
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_15c9hl0"
+      },
+      "property": "bpmn:sourceRef",
+      "id": "Activity_15eiw6r"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_15c9hl0"
+      },
+      "property": "bpmn:targetRef",
+      "id": "Gateway_1se4v3w"
+    },
+    {
+      "property": "bpmn:incoming",
+      "id": "Flow_0hhrkrp",
+      "element": {
+        "$type": "bpmn:Task",
+        "id": "Activity_0pee75o",
+        "name": "innertask2"
+      }
+    },
+    {
+      "property": "bpmn:outgoing",
+      "id": "Flow_08svbbv",
+      "element": {
+        "$type": "bpmn:Task",
+        "id": "Activity_0pee75o",
+        "name": "innertask2"
       }
     },
     {
       "property": "bpmn:incoming",
-      "id": "Flow_09qtun2",
+      "id": "Flow_1k2z3xr",
       "element": {
         "$type": "bpmn:Task",
-        "id": "Activity_11vopaz",
-        "name": "22"
+        "id": "Activity_0e0ayod",
+        "name": "innertask3"
+      }
+    },
+    {
+      "property": "bpmn:outgoing",
+      "id": "Flow_11m0f9d",
+      "element": {
+        "$type": "bpmn:Task",
+        "id": "Activity_0e0ayod",
+        "name": "innertask3"
       }
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_09qtun2"
+        "id": "Flow_0hhrkrp"
       },
       "property": "bpmn:sourceRef",
-      "id": "Event_0t5y400"
+      "id": "Gateway_1se4v3w"
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_09qtun2"
+        "id": "Flow_0hhrkrp"
       },
       "property": "bpmn:targetRef",
-      "id": "Activity_11vopaz"
+      "id": "Activity_0pee75o"
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_1is6v5h"
+        "id": "Flow_1k2z3xr"
       },
       "property": "bpmn:sourceRef",
-      "id": "Event_0u0vhzl"
+      "id": "Gateway_1se4v3w"
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_1is6v5h"
+        "id": "Flow_1k2z3xr"
       },
       "property": "bpmn:targetRef",
-      "id": "Activity_03s6yui"
+      "id": "Activity_0e0ayod"
+    },
+    {
+      "property": "bpmn:incoming",
+      "id": "Flow_08svbbv",
+      "element": {
+        "$type": "bpmn:EndEvent",
+        "id": "Event_1rwurj0",
+        "name": "innerend1"
+      }
+    },
+    {
+      "property": "bpmn:incoming",
+      "id": "Flow_11m0f9d",
+      "element": {
+        "$type": "bpmn:EndEvent",
+        "id": "Event_0eyhlbj",
+        "name": "innerend2"
+      }
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_1prqr7v"
+        "id": "Flow_08svbbv"
       },
       "property": "bpmn:sourceRef",
-      "id": "Activity_0z1ii88"
+      "id": "Activity_0pee75o"
     },
     {
       "element": {
         "$type": "bpmn:SequenceFlow",
-        "id": "Flow_1prqr7v"
+        "id": "Flow_08svbbv"
       },
       "property": "bpmn:targetRef",
-      "id": "Activity_03s6yui"
+      "id": "Event_1rwurj0"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_11m0f9d"
+      },
+      "property": "bpmn:sourceRef",
+      "id": "Activity_0e0ayod"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_11m0f9d"
+      },
+      "property": "bpmn:targetRef",
+      "id": "Event_0eyhlbj"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_082m1mc"
+      },
+      "property": "bpmn:sourceRef",
+      "id": "Activity_1ffg47j"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_082m1mc"
+      },
+      "property": "bpmn:targetRef",
+      "id": "Activity_0rdg1tk"
+    },
+    {
+      "property": "bpmn:incoming",
+      "id": "Flow_0rmessc",
+      "element": {
+        "$type": "bpmn:EndEvent",
+        "id": "Event_12yj68a",
+        "name": "outerend"
+      }
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_0rmessc"
+      },
+      "property": "bpmn:sourceRef",
+      "id": "Activity_0rdg1tk"
+    },
+    {
+      "element": {
+        "$type": "bpmn:SequenceFlow",
+        "id": "Flow_0rmessc"
+      },
+      "property": "bpmn:targetRef",
+      "id": "Event_12yj68a"
     },
     {
       "element": {
@@ -1963,11 +2686,46 @@
         "planeElement": [
           {
             "$type": "bpmndi:BPMNShape",
+            "id": "Activity_1ffg47j_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 260,
+              "y": 190,
+              "width": 100,
+              "height": 80
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel"
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Event_12yj68a_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 1112,
+              "y": 212,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 1109,
+                "y": 255,
+                "width": 44,
+                "height": 14
+              }
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
             "id": "_BPMNShape_StartEvent_2",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 152,
-              "y": 242,
+              "x": 162,
+              "y": 212,
               "width": 36,
               "height": 36
             },
@@ -1975,56 +2733,32 @@
               "$type": "bpmndi:BPMNLabel",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 167,
-                "y": 285,
-                "width": 7,
+                "x": 157,
+                "y": 255,
+                "width": 47,
                 "height": 14
               }
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Event_0u0vhzl_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 192,
-              "y": 662,
-              "width": 36,
-              "height": 36
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 207,
-                "y": 705,
-                "width": 7,
-                "height": 14
-              }
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_0z1ii88_di",
+            "id": "Activity_0rdg1tk_di",
             "isExpanded": true,
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 285,
-              "y": 100,
-              "width": 565,
-              "height": 400
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
+              "x": 420,
+              "y": 80,
+              "width": 620,
+              "height": 280
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Event_1w07kch_di",
+            "id": "Event_1ehf527_di",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 342,
-              "y": 182,
+              "x": 460,
+              "y": 192,
               "width": 36,
               "height": 36
             },
@@ -2032,20 +2766,20 @@
               "$type": "bpmndi:BPMNLabel",
               "bounds": {
                 "$type": "dc:Bounds",
-                "x": 354,
-                "y": 225,
-                "width": 13,
+                "x": 455,
+                "y": 235,
+                "width": 46,
                 "height": 14
               }
             }
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Activity_1j0f7xd_di",
+            "id": "Activity_15eiw6r_di",
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 430,
-              "y": 160,
+              "x": 530,
+              "y": 170,
               "width": 100,
               "height": 80
             },
@@ -2055,11 +2789,33 @@
           },
           {
             "$type": "bpmndi:BPMNShape",
-            "id": "Activity_06vz59z_di",
+            "id": "Gateway_1se4v3w_di",
+            "isMarkerVisible": true,
             "bounds": {
               "$type": "dc:Bounds",
-              "x": 620,
-              "y": 160,
+              "x": 665,
+              "y": 185,
+              "width": 50,
+              "height": 50
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 742,
+                "y": 200,
+                "width": 56,
+                "height": 14
+              }
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Activity_0pee75o_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 770,
+              "y": 110,
               "width": 100,
               "height": 80
             },
@@ -2068,155 +2824,262 @@
             }
           },
           {
-            "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0pkwqpe_di",
-            "waypoint": [
-              {
-                "$type": "dc:Point",
-                "x": 378,
-                "y": 200
-              },
-              {
-                "$type": "dc:Point",
-                "x": 430,
-                "y": 200
+            "$type": "bpmndi:BPMNShape",
+            "id": "BPMNShape_1jsvigz",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 770,
+              "y": 250,
+              "width": 100,
+              "height": 80
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel"
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "BPMNShape_0gltwu3",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 942,
+              "y": 272,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 936,
+                "y": 315,
+                "width": 49,
+                "height": 14
               }
-            ]
+            }
+          },
+          {
+            "$type": "bpmndi:BPMNShape",
+            "id": "Event_1rwurj0_di",
+            "bounds": {
+              "$type": "dc:Bounds",
+              "x": 942,
+              "y": 132,
+              "width": 36,
+              "height": 36
+            },
+            "label": {
+              "$type": "bpmndi:BPMNLabel",
+              "bounds": {
+                "$type": "dc:Bounds",
+                "x": 936,
+                "y": 175,
+                "width": 49,
+                "height": 14
+              }
+            }
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0wioa0e_di",
+            "id": "Flow_096hzw3_di",
             "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 496,
+                "y": 210
+              },
               {
                 "$type": "dc:Point",
                 "x": 530,
-                "y": 200
-              },
-              {
-                "$type": "dc:Point",
-                "x": 620,
-                "y": 200
-              }
-            ]
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_03s6yui_di",
-            "isExpanded": true,
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 285,
-              "y": 580,
-              "width": 565,
-              "height": 360
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Event_0t5y400_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 342,
-              "y": 662,
-              "width": 36,
-              "height": 36
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel",
-              "bounds": {
-                "$type": "dc:Bounds",
-                "x": 354,
-                "y": 705,
-                "width": 13,
-                "height": 14
-              }
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNShape",
-            "id": "Activity_11vopaz_di",
-            "bounds": {
-              "$type": "dc:Bounds",
-              "x": 430,
-              "y": 640,
-              "width": 100,
-              "height": 80
-            },
-            "label": {
-              "$type": "bpmndi:BPMNLabel"
-            }
-          },
-          {
-            "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_09qtun2_di",
-            "waypoint": [
-              {
-                "$type": "dc:Point",
-                "x": 378,
-                "y": 680
-              },
-              {
-                "$type": "dc:Point",
-                "x": 430,
-                "y": 680
+                "y": 210
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_0ruewsi_di",
+            "id": "Flow_15c9hl0_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 188,
-                "y": 260
+                "x": 630,
+                "y": 210
               },
               {
                 "$type": "dc:Point",
-                "x": 285,
-                "y": 260
+                "x": 665,
+                "y": 210
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_1is6v5h_di",
+            "id": "Flow_0hhrkrp_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 228,
-                "y": 680
+                "x": 690,
+                "y": 185
               },
               {
                 "$type": "dc:Point",
-                "x": 285,
-                "y": 680
+                "x": 690,
+                "y": 150
+              },
+              {
+                "$type": "dc:Point",
+                "x": 770,
+                "y": 150
               }
             ]
           },
           {
             "$type": "bpmndi:BPMNEdge",
-            "id": "Flow_1prqr7v_di",
+            "id": "Flow_1k2z3xr_di",
             "waypoint": [
               {
                 "$type": "dc:Point",
-                "x": 568,
-                "y": 500
+                "x": 690,
+                "y": 235
               },
               {
                 "$type": "dc:Point",
-                "x": 568,
-                "y": 580
+                "x": 690,
+                "y": 290
+              },
+              {
+                "$type": "dc:Point",
+                "x": 770,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_08svbbv_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 870,
+                "y": 150
+              },
+              {
+                "$type": "dc:Point",
+                "x": 942,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_11m0f9d_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 870,
+                "y": 290
+              },
+              {
+                "$type": "dc:Point",
+                "x": 942,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_0bqba59_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 198,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 260,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_082m1mc_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 360,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 420,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "$type": "bpmndi:BPMNEdge",
+            "id": "Flow_0rmessc_di",
+            "waypoint": [
+              {
+                "$type": "dc:Point",
+                "x": 1040,
+                "y": 230
+              },
+              {
+                "$type": "dc:Point",
+                "x": 1112,
+                "y": 230
               }
             ]
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Process_1bpudnz"
+      "id": "Process_0dzg6ph"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "Activity_1ffg47j_di",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 260,
+          "y": 190,
+          "width": 100,
+          "height": 80
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel"
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Activity_1ffg47j"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "Event_12yj68a_di",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 1112,
+          "y": 212,
+          "width": 36,
+          "height": 36
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 1109,
+            "y": 255,
+            "width": 44,
+            "height": 14
+          }
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Event_12yj68a"
     },
     {
       "element": {
@@ -2224,8 +3087,8 @@
         "id": "_BPMNShape_StartEvent_2",
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 152,
-          "y": 242,
+          "x": 162,
+          "y": 212,
           "width": 36,
           "height": 36
         },
@@ -2233,68 +3096,40 @@
           "$type": "bpmndi:BPMNLabel",
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 167,
-            "y": 285,
-            "width": 7,
+            "x": 157,
+            "y": 255,
+            "width": 47,
             "height": 14
           }
         }
       },
       "property": "bpmndi:bpmnElement",
-      "id": "StartEvent_1ibzexp"
+      "id": "StartEvent_0yb13tk"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNShape",
-        "id": "Event_0u0vhzl_di",
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 192,
-          "y": 662,
-          "width": 36,
-          "height": 36
-        },
-        "label": {
-          "$type": "bpmndi:BPMNLabel",
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 207,
-            "y": 705,
-            "width": 7,
-            "height": 14
-          }
-        }
-      },
-      "property": "bpmndi:bpmnElement",
-      "id": "Event_0u0vhzl"
-    },
-    {
-      "element": {
-        "$type": "bpmndi:BPMNShape",
-        "id": "Activity_0z1ii88_di",
+        "id": "Activity_0rdg1tk_di",
         "isExpanded": true,
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 285,
-          "y": 100,
-          "width": 565,
-          "height": 400
-        },
-        "label": {
-          "$type": "bpmndi:BPMNLabel"
+          "x": 420,
+          "y": 80,
+          "width": 620,
+          "height": 280
         }
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Activity_0z1ii88"
+      "id": "Activity_0rdg1tk"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNShape",
-        "id": "Event_1w07kch_di",
+        "id": "Event_1ehf527_di",
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 342,
-          "y": 182,
+          "x": 460,
+          "y": 192,
           "width": 36,
           "height": 36
         },
@@ -2302,24 +3137,24 @@
           "$type": "bpmndi:BPMNLabel",
           "bounds": {
             "$type": "dc:Bounds",
-            "x": 354,
-            "y": 225,
-            "width": 13,
+            "x": 455,
+            "y": 235,
+            "width": 46,
             "height": 14
           }
         }
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Event_1w07kch"
+      "id": "Event_1ehf527"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNShape",
-        "id": "Activity_1j0f7xd_di",
+        "id": "Activity_15eiw6r_di",
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 430,
-          "y": 160,
+          "x": 530,
+          "y": 170,
           "width": 100,
           "height": 80
         },
@@ -2328,207 +3163,309 @@
         }
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Activity_1j0f7xd"
+      "id": "Activity_15eiw6r"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNShape",
-        "id": "Activity_06vz59z_di",
+        "id": "Gateway_1se4v3w_di",
+        "isMarkerVisible": true,
         "bounds": {
           "$type": "dc:Bounds",
-          "x": 620,
-          "y": 160,
-          "width": 100,
-          "height": 80
+          "x": 665,
+          "y": 185,
+          "width": 50,
+          "height": 50
         },
         "label": {
-          "$type": "bpmndi:BPMNLabel"
-        }
-      },
-      "property": "bpmndi:bpmnElement",
-      "id": "Activity_06vz59z"
-    },
-    {
-      "element": {
-        "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_0pkwqpe_di",
-        "waypoint": [
-          {
-            "$type": "dc:Point",
-            "x": 378,
-            "y": 200
-          },
-          {
-            "$type": "dc:Point",
-            "x": 430,
-            "y": 200
+          "$type": "bpmndi:BPMNLabel",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 742,
+            "y": 200,
+            "width": 56,
+            "height": 14
           }
-        ]
+        }
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_0pkwqpe"
+      "id": "Gateway_1se4v3w"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "Activity_0pee75o_di",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 770,
+          "y": 110,
+          "width": 100,
+          "height": 80
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel"
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Activity_0pee75o"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "BPMNShape_1jsvigz",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 770,
+          "y": 250,
+          "width": 100,
+          "height": 80
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel"
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Activity_0e0ayod"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "BPMNShape_0gltwu3",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 942,
+          "y": 272,
+          "width": 36,
+          "height": 36
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 936,
+            "y": 315,
+            "width": 49,
+            "height": 14
+          }
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Event_0eyhlbj"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNShape",
+        "id": "Event_1rwurj0_di",
+        "bounds": {
+          "$type": "dc:Bounds",
+          "x": 942,
+          "y": 132,
+          "width": 36,
+          "height": 36
+        },
+        "label": {
+          "$type": "bpmndi:BPMNLabel",
+          "bounds": {
+            "$type": "dc:Bounds",
+            "x": 936,
+            "y": 175,
+            "width": 49,
+            "height": 14
+          }
+        }
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Event_1rwurj0"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_0wioa0e_di",
+        "id": "Flow_096hzw3_di",
         "waypoint": [
+          {
+            "$type": "dc:Point",
+            "x": 496,
+            "y": 210
+          },
           {
             "$type": "dc:Point",
             "x": 530,
-            "y": 200
-          },
-          {
-            "$type": "dc:Point",
-            "x": 620,
-            "y": 200
+            "y": 210
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_0wioa0e"
-    },
-    {
-      "element": {
-        "$type": "bpmndi:BPMNShape",
-        "id": "Activity_03s6yui_di",
-        "isExpanded": true,
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 285,
-          "y": 580,
-          "width": 565,
-          "height": 360
-        },
-        "label": {
-          "$type": "bpmndi:BPMNLabel"
-        }
-      },
-      "property": "bpmndi:bpmnElement",
-      "id": "Activity_03s6yui"
-    },
-    {
-      "element": {
-        "$type": "bpmndi:BPMNShape",
-        "id": "Event_0t5y400_di",
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 342,
-          "y": 662,
-          "width": 36,
-          "height": 36
-        },
-        "label": {
-          "$type": "bpmndi:BPMNLabel",
-          "bounds": {
-            "$type": "dc:Bounds",
-            "x": 354,
-            "y": 705,
-            "width": 13,
-            "height": 14
-          }
-        }
-      },
-      "property": "bpmndi:bpmnElement",
-      "id": "Event_0t5y400"
-    },
-    {
-      "element": {
-        "$type": "bpmndi:BPMNShape",
-        "id": "Activity_11vopaz_di",
-        "bounds": {
-          "$type": "dc:Bounds",
-          "x": 430,
-          "y": 640,
-          "width": 100,
-          "height": 80
-        },
-        "label": {
-          "$type": "bpmndi:BPMNLabel"
-        }
-      },
-      "property": "bpmndi:bpmnElement",
-      "id": "Activity_11vopaz"
+      "id": "Flow_096hzw3"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_09qtun2_di",
+        "id": "Flow_15c9hl0_di",
         "waypoint": [
           {
             "$type": "dc:Point",
-            "x": 378,
-            "y": 680
+            "x": 630,
+            "y": 210
           },
           {
             "$type": "dc:Point",
-            "x": 430,
-            "y": 680
+            "x": 665,
+            "y": 210
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_09qtun2"
+      "id": "Flow_15c9hl0"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_0ruewsi_di",
+        "id": "Flow_0hhrkrp_di",
         "waypoint": [
           {
             "$type": "dc:Point",
-            "x": 188,
-            "y": 260
+            "x": 690,
+            "y": 185
           },
           {
             "$type": "dc:Point",
-            "x": 285,
-            "y": 260
+            "x": 690,
+            "y": 150
+          },
+          {
+            "$type": "dc:Point",
+            "x": 770,
+            "y": 150
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_0ruewsi"
+      "id": "Flow_0hhrkrp"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_1is6v5h_di",
+        "id": "Flow_1k2z3xr_di",
         "waypoint": [
           {
             "$type": "dc:Point",
-            "x": 228,
-            "y": 680
+            "x": 690,
+            "y": 235
           },
           {
             "$type": "dc:Point",
-            "x": 285,
-            "y": 680
+            "x": 690,
+            "y": 290
+          },
+          {
+            "$type": "dc:Point",
+            "x": 770,
+            "y": 290
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_1is6v5h"
+      "id": "Flow_1k2z3xr"
     },
     {
       "element": {
         "$type": "bpmndi:BPMNEdge",
-        "id": "Flow_1prqr7v_di",
+        "id": "Flow_08svbbv_di",
         "waypoint": [
           {
             "$type": "dc:Point",
-            "x": 568,
-            "y": 500
+            "x": 870,
+            "y": 150
           },
           {
             "$type": "dc:Point",
-            "x": 568,
-            "y": 580
+            "x": 942,
+            "y": 150
           }
         ]
       },
       "property": "bpmndi:bpmnElement",
-      "id": "Flow_1prqr7v"
+      "id": "Flow_08svbbv"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNEdge",
+        "id": "Flow_11m0f9d_di",
+        "waypoint": [
+          {
+            "$type": "dc:Point",
+            "x": 870,
+            "y": 290
+          },
+          {
+            "$type": "dc:Point",
+            "x": 942,
+            "y": 290
+          }
+        ]
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Flow_11m0f9d"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNEdge",
+        "id": "Flow_0bqba59_di",
+        "waypoint": [
+          {
+            "$type": "dc:Point",
+            "x": 198,
+            "y": 230
+          },
+          {
+            "$type": "dc:Point",
+            "x": 260,
+            "y": 230
+          }
+        ]
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Flow_0bqba59"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNEdge",
+        "id": "Flow_082m1mc_di",
+        "waypoint": [
+          {
+            "$type": "dc:Point",
+            "x": 360,
+            "y": 230
+          },
+          {
+            "$type": "dc:Point",
+            "x": 420,
+            "y": 230
+          }
+        ]
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Flow_082m1mc"
+    },
+    {
+      "element": {
+        "$type": "bpmndi:BPMNEdge",
+        "id": "Flow_0rmessc_di",
+        "waypoint": [
+          {
+            "$type": "dc:Point",
+            "x": 1040,
+            "y": 230
+          },
+          {
+            "$type": "dc:Point",
+            "x": 1112,
+            "y": 230
+          }
+        ]
+      },
+      "property": "bpmndi:bpmnElement",
+      "id": "Flow_0rmessc"
     }
   ],
   "warnings": []

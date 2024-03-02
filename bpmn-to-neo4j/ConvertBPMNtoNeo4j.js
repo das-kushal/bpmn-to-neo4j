@@ -3,7 +3,13 @@ import mapBPMNtoNeo4j from "./MapBPMNtoNeo4j.js";
 
 import fs from "fs";
 
+/**
+ * @param {String} bpmnXML - BPMN XML
+ * @param {Object} neo4jDriver - Neo4j driver
+ * @description - This function takes the BPMN XML and the Neo4j driver and converts the BPMN XML to Neo4j nodes and relationships
+ */
 export default async (bpmnXML, neo4jDriver) => {
+  // console.log("*********** ", typeof bpmnXML, "***********");
   const moddle = new BpmnModdle();
 
   const data = await moddle.fromXML(bpmnXML);
@@ -39,6 +45,7 @@ export default async (bpmnXML, neo4jDriver) => {
         nodeProperties += `, eventDef_type: '${node.eventDefinitions}'`;
       }
 
+      // Check if the node has a parent property - only valid in case of subprocesses
       if (node.parent) {
         console.log("node has parent");
         if (node.parent.parentId)

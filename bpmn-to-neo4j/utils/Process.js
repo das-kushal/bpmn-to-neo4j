@@ -1,9 +1,15 @@
-const handleProcess = (process, references, neo4jData, parent) => {
-  //   const neo4jData = {
-  //     nodes: [],
-  //     relationships: [],
-  //   };
+/**
+ * @param {Object} process - The process object from the BPMN file
+ * @param {Array} references - The references array from the BPMN file
+ * @param {Object} neo4jData - The neo4jData object to be updated
+ * @param {Object} parent - The parent object to be updated
+ *
+ * @returns {Object} - The updated neo4jData object
+ *
+ * @description - This function handles the process object from the BPMN file and updates the neo4jData object with the nodes and relationships from the process object
+ */
 
+const handleProcess = (process, references, neo4jData, parent) => {
   const sequenceFlows = [];
   const mapToFlow = {};
 
@@ -83,10 +89,8 @@ const handleProcess = (process, references, neo4jData, parent) => {
       mapToFlow[element.id] = sequenceFlows.length;
       sequenceFlows.push(newSeq);
     } else {
-      // TODO: Add logic to handle the single node for a subprocess ****
+      // ****** DONE: Add logic to handle the single node for a subprocess ******
       if (element.$type === "bpmn:SubProcess") {
-        //   if (process.type === "bpmn:SubProcess") {
-        //   }
         handleProcess(element, references, neo4jData, {
           parentId: element.id,
           parentName: element.name,
@@ -101,7 +105,7 @@ const handleProcess = (process, references, neo4jData, parent) => {
         annotation: "", // Initialize annotation property
         marker: "", // to add a marker property
         eventDefinitions: "",
-        parent: parent,
+        parent: parent, // add parent property only valid for subprocess
       };
       if (element.loopCharacteristics) {
         node = {
