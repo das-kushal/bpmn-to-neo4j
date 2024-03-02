@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0jdb8n5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="16.1.0">
+  <bpmn:process id="Process_1ej8s5k" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_00l8wjf" name="Starting">
+      <bpmn:outgoing>Flow_15lcmjh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1ytqlip" name="Make assessment">
+      <bpmn:incoming>Flow_15lcmjh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yu1e75</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1ygmi9j">
+        <bpmn:targetRef>DataObjectReference_0t8dv6z</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1ceiq6z">
+        <bpmn:targetRef>DataObjectReference_1aw5r3f</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_15lcmjh" sourceRef="StartEvent_00l8wjf" targetRef="Activity_1ytqlip" />
+    <bpmn:dataObjectReference id="DataObjectReference_0t8dv6z" name="Assessment" dataObjectRef="DataObject_0n60nur" />
+    <bpmn:dataObject id="DataObject_0n60nur" />
+    <bpmn:task id="Activity_06xgsea" name="Offer mortgage">
+      <bpmn:incoming>Flow_120aqtd</bpmn:incoming>
+      <bpmn:outgoing>Flow_04tmezi</bpmn:outgoing>
+      <bpmn:property id="Property_0xmil4x" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1kfpfhc">
+        <bpmn:sourceRef>DataObjectReference_0t8dv6z</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0xmil4x</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_134hoom" name="Offer?">
+      <bpmn:incoming>Flow_1yu1e75</bpmn:incoming>
+      <bpmn:outgoing>Flow_120aqtd</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0fyk2uc</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1yu1e75" sourceRef="Activity_1ytqlip" targetRef="Gateway_134hoom" />
+    <bpmn:sequenceFlow id="Flow_120aqtd" name="Yes" sourceRef="Gateway_134hoom" targetRef="Activity_06xgsea" />
+    <bpmn:task id="Activity_1ykfvey" name="Offer mortgage">
+      <bpmn:incoming>Flow_0fyk2uc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0t7z5ye</bpmn:outgoing>
+      <bpmn:property id="Property_11yy6vs" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_0tskctx">
+        <bpmn:sourceRef>DataObjectReference_1aw5r3f</bpmn:sourceRef>
+        <bpmn:targetRef>Property_11yy6vs</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0fyk2uc" name="No" sourceRef="Gateway_134hoom" targetRef="Activity_1ykfvey" />
+    <bpmn:sequenceFlow id="Flow_0t7z5ye" sourceRef="Activity_1ykfvey" targetRef="Activity_1aucqmo" />
+    <bpmn:dataObjectReference id="DataObjectReference_1aw5r3f" name="Assessment" dataObjectRef="DataObject_01vj5gj" />
+    <bpmn:dataObject id="DataObject_01vj5gj" />
+    <bpmn:task id="Activity_1aucqmo" name="Archive details">
+      <bpmn:incoming>Flow_0t7z5ye</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l2e0bt</bpmn:outgoing>
+      <bpmn:property id="Property_1kucakv" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_00y868i">
+        <bpmn:sourceRef>DataObjectReference_1aw5r3f</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1kucakv</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1bv06yg" name="Archive done">
+      <bpmn:incoming>Flow_1l2e0bt</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1l2e0bt" sourceRef="Activity_1aucqmo" targetRef="Event_1bv06yg" />
+    <bpmn:endEvent id="Event_1kgqo1c" name="Mortgage done">
+      <bpmn:incoming>Flow_04tmezi</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_04tmezi" sourceRef="Activity_06xgsea" targetRef="Event_1kgqo1c" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ej8s5k">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_00l8wjf">
+        <dc:Bounds x="152" y="252" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="151" y="295" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ytqlip_di" bpmnElement="Activity_1ytqlip">
+        <dc:Bounds x="240" y="230" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0t8dv6z_di" bpmnElement="DataObjectReference_0t8dv6z">
+        <dc:Bounds x="522" y="75" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="510" y="132" width="60" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06xgsea_di" bpmnElement="Activity_06xgsea">
+        <dc:Bounds x="680" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_134hoom_di" bpmnElement="Gateway_134hoom" isMarkerVisible="true">
+        <dc:Bounds x="485" y="245" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="544" y="263" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ykfvey_di" bpmnElement="Activity_1ykfvey">
+        <dc:Bounds x="680" y="340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1aw5r3f_di" bpmnElement="DataObjectReference_1aw5r3f">
+        <dc:Bounds x="712" y="535" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="700" y="592" width="60" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tyk105_di" bpmnElement="Activity_1aucqmo">
+        <dc:Bounds x="930" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1bv06yg_di" bpmnElement="Event_1bv06yg">
+        <dc:Bounds x="1182" y="362" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1168" y="405" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1kgqo1c_di" bpmnElement="Event_1kgqo1c">
+        <dc:Bounds x="932" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="913" y="225" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1ygmi9j_di" bpmnElement="DataOutputAssociation_1ygmi9j">
+        <di:waypoint x="290" y="230" />
+        <di:waypoint x="290" y="100" />
+        <di:waypoint x="522" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1ceiq6z_di" bpmnElement="DataOutputAssociation_1ceiq6z">
+        <di:waypoint x="290" y="310" />
+        <di:waypoint x="290" y="560" />
+        <di:waypoint x="712" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15lcmjh_di" bpmnElement="Flow_15lcmjh">
+        <di:waypoint x="188" y="270" />
+        <di:waypoint x="240" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1kfpfhc_di" bpmnElement="DataInputAssociation_1kfpfhc">
+        <di:waypoint x="558" y="100" />
+        <di:waypoint x="730" y="100" />
+        <di:waypoint x="730" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yu1e75_di" bpmnElement="Flow_1yu1e75">
+        <di:waypoint x="340" y="270" />
+        <di:waypoint x="485" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_120aqtd_di" bpmnElement="Flow_120aqtd">
+        <di:waypoint x="510" y="245" />
+        <di:waypoint x="510" y="200" />
+        <di:waypoint x="680" y="200" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="516" y="220" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0tskctx_di" bpmnElement="DataInputAssociation_0tskctx">
+        <di:waypoint x="730" y="535" />
+        <di:waypoint x="730" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fyk2uc_di" bpmnElement="Flow_0fyk2uc">
+        <di:waypoint x="510" y="295" />
+        <di:waypoint x="510" y="380" />
+        <di:waypoint x="680" y="380" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="518" y="335" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0t7z5ye_di" bpmnElement="Flow_0t7z5ye">
+        <di:waypoint x="780" y="380" />
+        <di:waypoint x="930" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_00y868i_di" bpmnElement="DataInputAssociation_00y868i">
+        <di:waypoint x="748" y="560" />
+        <di:waypoint x="980" y="560" />
+        <di:waypoint x="980" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l2e0bt_di" bpmnElement="Flow_1l2e0bt">
+        <di:waypoint x="1030" y="380" />
+        <di:waypoint x="1182" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04tmezi_di" bpmnElement="Flow_04tmezi">
+        <di:waypoint x="780" y="200" />
+        <di:waypoint x="932" y="200" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

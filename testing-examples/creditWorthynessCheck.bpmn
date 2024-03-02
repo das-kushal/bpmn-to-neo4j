@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0xxbwjh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="16.1.0">
+  <bpmn:process id="Process_0oznfjn" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_0o1dkum" name="Check requested">
+      <bpmn:outgoing>Flow_0m8ekmj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_0wtfjbm" name="check for running instances of the customer">
+      <bpmn:incoming>Flow_0m8ekmj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0yf64mt</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0r6zyif">
+        <bpmn:targetRef>DataStoreReference_17hr47h</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:dataStoreReference id="DataStoreReference_17hr47h" name="Engine Database" />
+    <bpmn:exclusiveGateway id="Gateway_0h50g64" name="running instances of same customer?">
+      <bpmn:incoming>Flow_0yf64mt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qd7l4v</bpmn:outgoing>
+      <bpmn:outgoing>Flow_168m5cc</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:intermediateCatchEvent id="Event_16ydwrt" name="credit check performed">
+      <bpmn:incoming>Flow_1qd7l4v</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jr3jhk</bpmn:outgoing>
+      <bpmn:signalEventDefinition id="SignalEventDefinition_0fd8co9" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_1qd7l4v" name="yes" sourceRef="Gateway_0h50g64" targetRef="Event_16ydwrt" />
+    <bpmn:callActivity id="Activity_1p2t1u9" name="perform credit check">
+      <bpmn:incoming>Flow_1jr3jhk</bpmn:incoming>
+      <bpmn:incoming>Flow_168m5cc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fxfnlq</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:sequenceFlow id="Flow_1jr3jhk" sourceRef="Event_16ydwrt" targetRef="Activity_1p2t1u9" />
+    <bpmn:endEvent id="Event_0ljltgl" name="Credit check performed">
+      <bpmn:incoming>Flow_1fxfnlq</bpmn:incoming>
+      <bpmn:signalEventDefinition id="SignalEventDefinition_13ebvll" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1fxfnlq" sourceRef="Activity_1p2t1u9" targetRef="Event_0ljltgl" />
+    <bpmn:sequenceFlow id="Flow_0yf64mt" sourceRef="Activity_0wtfjbm" targetRef="Gateway_0h50g64" />
+    <bpmn:sequenceFlow id="Flow_0m8ekmj" sourceRef="StartEvent_0o1dkum" targetRef="Activity_0wtfjbm" />
+    <bpmn:sequenceFlow id="Flow_168m5cc" name="no" sourceRef="Gateway_0h50g64" targetRef="Activity_1p2t1u9" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0oznfjn">
+      <bpmndi:BPMNShape id="Activity_0wtfjbm_di" bpmnElement="Activity_0wtfjbm">
+        <dc:Bounds x="260" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_17hr47h_di" bpmnElement="DataStoreReference_17hr47h">
+        <dc:Bounds x="285" y="255" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="268" y="312" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0h50g64_di" bpmnElement="Gateway_0h50g64" isMarkerVisible="true">
+        <dc:Bounds x="415" y="135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="396" y="85" width="87" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0o1dkum">
+        <dc:Bounds x="156" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="133" y="185" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1p2t1u9_di" bpmnElement="Activity_1p2t1u9">
+        <dc:Bounds x="620" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ljltgl_di" bpmnElement="Event_0ljltgl">
+        <dc:Bounds x="782" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="769" y="185" width="62" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_16ydwrt_di" bpmnElement="Event_16ydwrt">
+        <dc:Bounds x="502" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="491" y="285" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1qd7l4v_di" bpmnElement="Flow_1qd7l4v">
+        <di:waypoint x="440" y="185" />
+        <di:waypoint x="440" y="260" />
+        <di:waypoint x="502" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="447" y="220" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jr3jhk_di" bpmnElement="Flow_1jr3jhk">
+        <di:waypoint x="538" y="260" />
+        <di:waypoint x="589" y="260" />
+        <di:waypoint x="589" y="180" />
+        <di:waypoint x="620" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fxfnlq_di" bpmnElement="Flow_1fxfnlq">
+        <di:waypoint x="720" y="160" />
+        <di:waypoint x="782" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0r6zyif_di" bpmnElement="DataOutputAssociation_0r6zyif">
+        <di:waypoint x="310" y="200" />
+        <di:waypoint x="310" y="255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yf64mt_di" bpmnElement="Flow_0yf64mt">
+        <di:waypoint x="360" y="160" />
+        <di:waypoint x="415" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m8ekmj_di" bpmnElement="Flow_0m8ekmj">
+        <di:waypoint x="192" y="160" />
+        <di:waypoint x="260" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_168m5cc_di" bpmnElement="Flow_168m5cc">
+        <di:waypoint x="465" y="160" />
+        <di:waypoint x="620" y="160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="536" y="142" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
