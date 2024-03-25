@@ -1,7 +1,7 @@
 import BpmnModdle from "bpmn-moddle";
 import mapBPMNtoNeo4j from "./MapBPMNtoNeo4j.js";
 
-import fs from "fs";
+// import fs from "fs";
 
 /**
  * @param {String} bpmnXML - BPMN XML
@@ -21,7 +21,7 @@ export default async (bpmnXML, neo4jDriver) => {
     // Map BPMN elements to Neo4j nodes and relationships
     const neo4jData = mapBPMNtoNeo4j(data);
 
-    fs.writeFileSync("data2.json", JSON.stringify(data, null, 2));
+    // fs.writeFileSync("data2.json", JSON.stringify(data, null, 2));
 
     // NEW part
     const createNodeQueries = neo4jData.nodes?.map((node) => {
