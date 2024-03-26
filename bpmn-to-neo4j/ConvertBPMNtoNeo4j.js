@@ -94,8 +94,10 @@ export default async (bpmnXML, neo4jDriver) => {
       console.log("rolled back");
     } finally {
       await session.close();
+      console.log("******Data returned**** ", neo4jData);
+      return neo4jData;
     }
-    await session.close();
+    // await session.close();
   } catch (error) {
     console.error("Error converting BPMN to Neo4j:", error);
   }
