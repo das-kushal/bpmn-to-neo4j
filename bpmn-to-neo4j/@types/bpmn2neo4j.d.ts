@@ -1,4 +1,4 @@
-declare module "bpmnToNeo4j" {
+declare module "bpmn2neo4j" {
   // Define your types and interfaces here
   interface InputParams {
     xml: string;
