@@ -1,10 +1,10 @@
 {
-  "name": "bpmn-to-neo4j",
+  "name": "bpmn2neo4j",
   "version": "1.0.0",
   "description": "Helps converting BPMN diagram to Neo4j nodes and relationships",
   "type": "module",
   "main": "index.js",
-  "types": "./@types/bpmn-to-neo4j.d.ts",
+  "types": "./@types/bpmn2neo4j.d.ts",
   "scripts": {
     "test": "mocha --require @babel/register"
   },
@@ -15,9 +15,9 @@
   "keywords": [
     "bpmn",
     "neo4j",
-    "bpmn-to-neo4j"
+    "bpmn2neo4j"
   ],
-  "author": "bpmn-to-neo4j",
+  "author": "bpmn2neo4j",
   "license": "ISC",
   "dependencies": {
     "bpmn": "^0.2.2",
