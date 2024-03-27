@@ -1,7 +1,7 @@
 {
-  "name": "bpmn-to-neo4j-m",
-  "version": "1.0.9",
-  "description": "Converts BPMN diagram to Neo4j nodes and relations",
+  "name": "bpmn-to-neo4j",
+  "version": "1.0.0",
+  "description": "Helps converting BPMN diagram to Neo4j nodes and relationships",
   "type": "module",
   "main": "index.js",
   "types": "./@types/bpmn-to-neo4j.d.ts",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bpmn-neo4j-package/bpmn-to-neo4j.git"
+    "url": "git+https://github.com/das-kushal/bpmn-to-neo4j/tree/main/bpmn-to-neo4j"
   },
   "keywords": [
     "bpmn",
     "neo4j",
     "bpmn-to-neo4j"
   ],
-  "author": "bpmn-neo4j-package",
+  "author": "bpmn-to-neo4j",
   "license": "ISC",
   "dependencies": {
     "bpmn": "^0.2.2",

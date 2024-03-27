@@ -1,6 +1,6 @@
 # BPMN diagram to Neo4j conversion utility
 
-## helps in conversion of bpmn diagram to neo4j nodes and relations
+## Helps in conversion of bpmn diagram to neo4j nodes and relations
 
 ### Usage instructions
 
@@ -15,17 +15,13 @@ npm install bpmn-to-neo4j
 Download a sample digram.bpmn file [here](https://drive.google.com/file/d/1gJZHo6xfFgu31k6mP9AL1LOBaHknNXKf/view?usp=sharing)
 
 ```
-import main from 'bpmn-to-neo4j'
+import xmlToNeo4j from 'bpmn-to-neo4j'
 
-// diagram.bpmn file path --> path to bpmn diagram stored in xml format
+// provide the bpmn diagram as input from *.bpmn file
 
-const fileUrl = './diagram.bpmn';    // if it is in current directory
+const xml = '<xml>...</xml>';    // xml as string
 
-main(fileUrl, '<neo4j-connection-string>', '<neo4j-username>', '<neo4j-password>');
+const neo4jData = xmlToNeo4j(xml, '<neo4j-connection-string>', '<neo4j-username>', '<neo4j-password>');
 ```
 
-### Step 3: Make sure neo4j is active in background and run the file
-
-```
-node index.js
-```
+### Note: Make sure neo4j is active in background.
