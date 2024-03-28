@@ -28,7 +28,7 @@ npm install bpmn2neo4j
 
 Download a sample digram.bpmn file [here](https://drive.google.com/file/d/1gJZHo6xfFgu31k6mP9AL1LOBaHknNXKf/view?usp=sharing)
 
-```
+```js
 import xmlToNeo4j from 'bpmn2neo4j'
 
 // provide the bpmn diagram as input from *.bpmn file
