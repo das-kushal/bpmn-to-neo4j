@@ -1,6 +1,6 @@
 {
   "name": "bpmn2neo4j",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Helps converting BPMN diagram to Neo4j nodes and relationships",
   "type": "module",
   "main": "index.js",
